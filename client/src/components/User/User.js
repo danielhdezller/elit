@@ -1,16 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
 
-const User = () => {
-  return(
-    <div className="card" style={{width: '18rem'}}>
-    {/* <img src="..." className="card-img-top" alt="..."> */}
-    <div className="card-body">
-      <h5 className="card-title">Card title</h5>
-      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <span className="btn btn-primary">Go somewhere</span>
+const User = ({ username, firstname, familyname, techstack }) => {
+  return (
+    <div className='card' style={{ width: '18rem' }}>
+      <div className='card-body'>
+        <Link>
+          <h5 className='card-title'>{username}</h5>
+        </Link>
+        <h5 className='card-title'>
+          {firstname} {familyname}
+        </h5>
+        <span class='badge badge-pill badge-dark'>{techstack}</span>
+      </div>
     </div>
-  </div>
   );
-}
+};
 
 export default User;
