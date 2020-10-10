@@ -5,7 +5,7 @@ import User from '../User/User';
 const Home = ({ users }) => {
   const usersList = users.map((user) => (
     <User
-      username={user.nameName}
+      username={user.userName} 
       firstname={user.name}
       familyname={user.familyName}
       techstack={user.techStack}
