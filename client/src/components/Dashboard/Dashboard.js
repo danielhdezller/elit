@@ -1,17 +1,14 @@
 import React, {useState} from 'react';
+
 const Dashboard= () => {
+
   const [firstName, setFirstName]=useState('');
   const [familyName, setFamilyName]=useState('');
   const [techStack, setTechStack]=useState([]);
-  const [gender, setGender]=useState('');
-  const handleNameChange = (e) => {
-    setFirstName(e.target.value);
-  }
 
-  const handleFamilyNameChange = (e) => {
-    setFamilyName(e.target.value);
-  }
-
+  const handleNameChange = (e) => setFirstName(e.target.value);
+  const handleFamilyNameChange = (e) => setFamilyName(e.target.value);
+  
   return (
     <div>
       <h1>Hamed's Profile</h1>
@@ -38,21 +35,7 @@ const Dashboard= () => {
                 <input type='text' className='form-control' />
               </div>
             </div>
-            <div className='form-group row'>
-              <div className='col-sm-2'>Gender</div>
-              <div className='col-sm-10'>
-                <div className='form-check'>
-                  <input className='form-check-input' type='checkbox' />
-                  <label className='form-check-label'>Male</label>
 
-                  <input className='form-check-input' type='checkbox' />
-                  <label className='form-check-label'>Female</label>
-
-                  <input className='form-check-input' type='checkbox' />
-                  <label className='form-check-label'>Other</label>
-                </div>
-              </div>
-            </div>
             <div className='form-group row'>
               <div className='col-sm-2'>Tech stack</div>
               <div className='col-sm-10'>
