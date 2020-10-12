@@ -4,7 +4,7 @@ const Filtering = ({ setFilter, usersList }) => {
   const initialState = {
     javaScript: false,
     python: false,
-    golang: false,
+    golang: false
   }
 
   const [state, setState] = useState(initialState)
