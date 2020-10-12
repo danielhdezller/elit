@@ -18,7 +18,7 @@ const db = [
     "name":"Marek", 
     "familyName": "Czajka", 
     "userName":"m-cza",
-    "techStack":["Python", "SQ  L", "C++"]
+    "techStack":["Python", "Go", "C++"]
   },
   {
     "id": 4,

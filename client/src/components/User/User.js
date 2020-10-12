@@ -10,7 +10,7 @@ const User = ({ username, firstname, familyname, techstack }) => {
             {firstname} {familyname}
           </h5>
         </Link>
-        <span class='badge badge-pill badge-dark'>{techstack}</span>
+        <span className='badge badge-pill badge-dark'>{techstack}</span>
       </div>
     </div>
   );

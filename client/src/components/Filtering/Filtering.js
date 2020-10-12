@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Filtering = () => {
+const Filtering = ({ filter, setFilter, usersList }) => {
+
+
   const initialState = {
     javaScript: false,
     python: false,
@@ -8,13 +10,27 @@ const Filtering = () => {
   };
 
   const [state, setState] = useState(initialState);
-
+  
+  useEffect(() => {
+    updateFilter()
+  },[state])
+  
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setState((prevState) => ({
       ...prevState,
       [name]: !prevState[name],
     }));
+  };
+
+  const applyFilter = (arr, str) => arr.filter(el => el.props.techstack.includes(str))
+  
+  const updateFilter = () => {
+    let result = usersList;
+    if(state.javaScript) result = applyFilter(result, 'JavaScript');
+    if(state.python) result = applyFilter(result, 'Python');
+    if(state.golang) result = applyFilter(result, 'Go');
+    setFilter(result);    
   };
 
   return (
@@ -23,9 +39,26 @@ const Filtering = () => {
         name='javaScript'
         value={state.javaScript}
         type='checkbox'
-        onClick={handleChange}
+        onChange={handleChange}
+
       />
       Javascript
+      <input
+        name='python'
+        value={state.python}
+        type='checkbox'
+        onChange={handleChange}
+
+      />
+      Python
+      <input
+        name='golang'
+        value={state.golang}
+        type='checkbox'
+        onChange={handleChange}
+
+      />
+      Golang
     </div>
   );
 };
