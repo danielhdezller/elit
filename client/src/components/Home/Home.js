@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Filtering from '../Filtering/Filtering';
-import User from '../User/User';
+import React, { useState } from 'react'
+import Filtering from '../Filtering/Filtering'
+import User from '../User/User'
 
 const Home = ({ users }) => {
   const usersList = users.map((user) => (
@@ -11,9 +11,9 @@ const Home = ({ users }) => {
       familyname={user.familyName}
       techstack={user.techStack}
     />
-  ));
+  ))
 
-  const [filter, setFilter] = useState(usersList);
+  const [filter, setFilter] = useState(usersList)
 
   return (
     <div>
@@ -21,7 +21,7 @@ const Home = ({ users }) => {
       <Filtering filter={filter} setFilter={setFilter} usersList={usersList} />
       {filter}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

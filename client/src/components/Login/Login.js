@@ -1,7 +1,7 @@
-import React from 'react';
-import './Login.scss';
-import { CLIENT_ID, REDIRECT_URI } from '../../config/config';
-import githubIcon from '../../assets/images/GithubIcon.png';
+import React from 'react'
+import './Login.scss'
+import { CLIENT_ID, REDIRECT_URI } from '../../config/config'
+import githubIcon from '../../assets/images/GithubIcon.png'
 
 function Login() {
   return (
@@ -22,7 +22,7 @@ function Login() {
         </div>
       </a>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login

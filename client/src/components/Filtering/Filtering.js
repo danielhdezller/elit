@@ -1,36 +1,36 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react'
 
 const Filtering = ({ setFilter, usersList }) => {
-
   const initialState = {
     javaScript: false,
     python: false,
     golang: false,
-  };
+  }
 
-  const [state, setState] = useState(initialState);
-  
+  const [state, setState] = useState(initialState)
+
   useEffect(() => {
     updateFilter() // eslint-disable-next-line
-  },[state])
-  
+  }, [state])
+
   const handleChange = (e) => {
-    const { name } = e.target;
+    const { name } = e.target
     setState((prevState) => ({
       ...prevState,
       [name]: !prevState[name],
-    }));
-  };
+    }))
+  }
 
-  const applyFilter = (arr, str) => arr.filter(el => el.props.techstack.includes(str))
-  
+  const applyFilter = (arr, str) =>
+    arr.filter((el) => el.props.techstack.includes(str))
+
   const updateFilter = () => {
-    let result = usersList;
-    if(state.javaScript) result = applyFilter(result, 'JavaScript');
-    if(state.python) result = applyFilter(result, 'Python');
-    if(state.golang) result = applyFilter(result, 'Go');
-    setFilter(result);    
-  };
+    let result = usersList
+    if (state.javaScript) result = applyFilter(result, 'JavaScript')
+    if (state.python) result = applyFilter(result, 'Python')
+    if (state.golang) result = applyFilter(result, 'Go')
+    setFilter(result)
+  }
 
   return (
     <div className='btn-group-toggle' data-toggle='buttons'>
@@ -56,7 +56,7 @@ const Filtering = ({ setFilter, usersList }) => {
       />
       Golang
     </div>
-  );
-};
+  )
+}
 
-export default Filtering;
+export default Filtering

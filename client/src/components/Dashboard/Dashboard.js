@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-
+import React, { useState } from 'react'
 
 const Dashboard = () => {
-  const [firstName, setFirstName] = useState('');
-  const [familyName, setFamilyName] = useState('');
-  // const [techStack, setTechStack] = useState([]);
+  const [firstName, setFirstName] = useState('')
+  const [familyName, setFamilyName] = useState('')
+  // const [techStack, setTechStack] = useState([])
 
-  const handleNameChange = (e) => setFirstName(e.target.value);
-  const handleFamilyNameChange = (e) => setFamilyName(e.target.value);
+  const handleNameChange = (e) => setFirstName(e.target.value)
+  const handleFamilyNameChange = (e) => setFamilyName(e.target.value)
 
   return (
     <div>
@@ -77,7 +76,7 @@ const Dashboard = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

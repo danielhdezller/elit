@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const User = ({ username, firstname, familyname, techstack }) => {
   return (
@@ -13,7 +13,7 @@ const User = ({ username, firstname, familyname, techstack }) => {
         <span className='badge badge-pill badge-dark'>{techstack}</span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default User;
+export default User
