@@ -3,7 +3,7 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import users from './mockData';
 import UserProfile from './components/UserProfile/UserProfile';
 

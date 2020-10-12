@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 
-const Filtering = ({ filter, setFilter, usersList }) => {
+const Filtering = ({ setFilter, usersList }) => {
 
   const initialState = {
     javaScript: false,
@@ -11,11 +11,11 @@ const Filtering = ({ filter, setFilter, usersList }) => {
   const [state, setState] = useState(initialState);
   
   useEffect(() => {
-    updateFilter()
+    updateFilter() // eslint-disable-next-line
   },[state])
   
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
     setState((prevState) => ({
       ...prevState,
       [name]: !prevState[name],

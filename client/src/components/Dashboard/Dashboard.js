@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-const Dashboard= () => {
 
-  const [firstName, setFirstName]=useState('');
-  const [familyName, setFamilyName]=useState('');
-  const [techStack, setTechStack]=useState([]);
+const Dashboard = () => {
+  const [firstName, setFirstName] = useState('');
+  const [familyName, setFamilyName] = useState('');
+  // const [techStack, setTechStack] = useState([]);
 
   const handleNameChange = (e) => setFirstName(e.target.value);
   const handleFamilyNameChange = (e) => setFamilyName(e.target.value);
-  
+
   return (
     <div>
       <h1>Hamed's Profile</h1>
@@ -20,19 +20,34 @@ const Dashboard= () => {
             <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>Name</label>
               <div className='col-sm-10'>
-                <input type='text' className='form-control' value={firstName} onChange={handleNameChange}/>
+                <input
+                  type='text'
+                  className='form-control'
+                  value={firstName}
+                  onChange={handleNameChange}
+                />
               </div>
             </div>
             <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>Family name</label>
               <div className='col-sm-10'>
-                <input type='text' className='form-control'value={familyName} onChange={handleFamilyNameChange}/>
+                <input
+                  type='text'
+                  className='form-control'
+                  value={familyName}
+                  onChange={handleFamilyNameChange}
+                />
               </div>
             </div>
             <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>User name</label>
               <div className='col-sm-10'>
-                <input type='text' className='form-control' />
+                <input
+                  // value={}
+                  disabled
+                  type='text'
+                  className='form-control'
+                />
               </div>
             </div>
 
@@ -66,6 +81,3 @@ const Dashboard= () => {
 };
 
 export default Dashboard;
-
-
-
