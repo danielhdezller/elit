@@ -4,9 +4,11 @@ const fetch = require('node-fetch');
 
 let currentUser;
 
+
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
+
 const typeDefs = gql`
   type Query {
     githubLoginUrl: String!
@@ -98,3 +100,4 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
+

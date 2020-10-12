@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.scss';
-import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home';
-import Dashboard from './components/Dashboard/Dashboard';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import users from './mockData';
-import UserProfile from './components/UserProfile/UserProfile';
+import React from 'react'
+import './App.scss'
+import Navbar from './components/Navbar/Navbar'
+import Home from './components/Home/Home'
+import Dashboard from './components/Dashboard/Dashboard'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import users from './mockData'
+import UserProfile from './components/UserProfile/UserProfile'
 
 function App() {
   return (
@@ -14,11 +14,14 @@ function App() {
       <Switch>
         <Route exact path='/' render={() => <Home users={users} />} />
         <Route exact path='/dashboard' component={Dashboard} />
-        <Route exact path='/members/:name' render={({match}) => <UserProfile match={match} users={users} />}
+        <Route
+          exact
+          path='/members/:name'
+          render={({ match }) => <UserProfile match={match} users={users} />}
         />
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

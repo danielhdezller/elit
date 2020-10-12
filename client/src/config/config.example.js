@@ -1,2 +1,2 @@
-exports.CLIENT_ID = '';
-exports.REDIRECT_URI = '';
+exports.CLIENT_ID = ''
+exports.REDIRECT_URI = ''
