@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 const Filtering = ({ filter, setFilter, usersList }) => {
 
-
   const initialState = {
     javaScript: false,
     python: false,
@@ -40,7 +39,6 @@ const Filtering = ({ filter, setFilter, usersList }) => {
         value={state.javaScript}
         type='checkbox'
         onChange={handleChange}
-
       />
       Javascript
       <input
@@ -48,7 +46,6 @@ const Filtering = ({ filter, setFilter, usersList }) => {
         value={state.python}
         type='checkbox'
         onChange={handleChange}
-
       />
       Python
       <input
@@ -56,7 +53,6 @@ const Filtering = ({ filter, setFilter, usersList }) => {
         value={state.golang}
         type='checkbox'
         onChange={handleChange}
-
       />
       Golang
     </div>
