@@ -12,9 +12,10 @@ const typeDefs = gql`
 
   type User {
     name: String
-    githubLogin: String
+    githubLogin: String #login?
     githubToken: String
     avatar: String
+    techStack: []
   }
 
   type AuthPayload {
@@ -23,4 +24,6 @@ const typeDefs = gql`
   }
 `;
 
+
+ 
 module.exports = typeDefs;
