@@ -12,11 +12,11 @@ const Dashboard = () => {
   const handleFamilyNameChange = (e) => setFamilyName(e.target.value);
 
   useEffect(() => {
-    getUserProfileInfo()
-      .then((response) => {
-      setProfileInformation(response)
-    })
-  });
+    let userInfo = getUserProfileInfo()
+     
+      setProfileInformation(userInfo)
+    
+  },[]);
   console.log(profileInformation)
 
   return (
