@@ -18,7 +18,9 @@ const db = [
     name: 'Marek',
     familyName: 'Czajka',
     userName: 'm-cza',
-    techStack: ['Python', 'SQ  L', 'C++'],
+
+    techStack: ['Python', 'Go', 'C++'],
+
   },
   {
     id: 4,
@@ -27,6 +29,7 @@ const db = [
     userName: 't-za',
     techStack: ['Angular', 'Go', 'Python', 'SQL', 'C++'],
   },
-];
+]
 
-export default db;
+export default db
+

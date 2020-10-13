@@ -1,5 +1,5 @@
-import React from 'react';
-import Login from '../Login/Login';
+import React from 'react'
+import Login from '../Login/Login'
 
 const Navbar = () => {
   return (
@@ -7,7 +7,7 @@ const Navbar = () => {
       <h1 className='text-danger border-white'>Elit</h1>
       <Login />
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
