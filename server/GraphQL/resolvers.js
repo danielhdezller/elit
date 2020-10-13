@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { requestGithubUser } = require('./authenticationMidleware');
+const { requestGithubUser } = require('../authenticationMidleware');
 
 let currentUser;
 
@@ -12,6 +12,7 @@ const resolvers = {
   },
   Mutation: {
     async authorizeWithGithub(parent, { code }) {
+      console.log('code', code);
       // 1. Obtain data from GitHub
       let githubUser = await requestGithubUser({
         client_id: `${process.env.CLIENT_ID}`,

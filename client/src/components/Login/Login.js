@@ -1,23 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.scss';
-import { gql, useLazyQuery } from '@apollo/client';
-
-import { CLIENT_ID, REDIRECT_URI } from '../../config/config';
+import { useLazyQuery, useMutation } from '@apollo/client';
+import { useHistory } from 'react-router-dom';
 import githubIcon from '../../assets/images/GithubIcon.png';
-
-const GET_USER_CODE = gql`
-  query {
-    githubLoginUrl
-  }
-`;
+import { GET_USER_CODE } from '../../GraphQL/querys.js';
+import { GET_USER_DATA } from '../../GraphQL/mutations';
 
 function Login() {
-  const [getUsersCode, { loading, data }] = useLazyQuery(GET_USER_CODE);
+  const history = useHistory();
 
-  if (loading) return <p>Loading ...</p>;
+  const [getUsersCode, { data }] = useLazyQuery(GET_USER_CODE);
+
   if (data) {
-    console.log(data.githubLoginUrl);
+    console.log('data:', data);
+    window.location.href = data.githubLoginUrl;
   }
+
+  console.log('history.location.search:', history.location);
+  const userCode = history.location.search.split('=').slice(1).join();
+  console.log('userCode:', userCode);
+
+  // mutation here then
+  // Apolo client on completed
+  const [mutateUser, { data: response }] = useMutation(GET_USER_DATA);
+  // console.log('user:', user);
+
+  if (userCode && !response?.authorizeWithGithub?.user.name) {
+    mutateUser({
+      variables: { code: userCode },
+      // onError(error) {
+      //   console.log('error:', error);
+      // },
+      onCompleted({ mutateUser }) {
+        history.push('/profile');
+      },
+    });
+  }
+  console.log('response:', response);
+  // if (response?.authorizeWithGithub?.user.name) {
+  //   history.push('/profile');
+  // }
+
   return (
     <div>
       <div className='githubLogin' onClick={() => getUsersCode()}>
