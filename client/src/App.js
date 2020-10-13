@@ -1,11 +1,13 @@
-import React from 'react'
-import './App.scss'
-import Navbar from './components/Navbar/Navbar'
-import Home from './components/Home/Home'
-import Dashboard from './components/Dashboard/Dashboard'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import users from './mockData'
-import UserProfile from './components/UserProfile/UserProfile'
+import React from 'react';
+import './App.scss';
+import { useQuery, gql } from '@apollo/client';
+
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Dashboard from './components/Dashboard/Dashboard';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import users from './mockData';
+import UserProfile from './components/UserProfile/UserProfile';
 
 function App() {
   return (
@@ -21,7 +23,7 @@ function App() {
         />
       </Switch>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

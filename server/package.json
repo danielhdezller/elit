@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/client": "^3.2.3",
     "apollo-server": "^2.18.2",
     "dotenv": "^8.2.0",
     "graphql": "^15.3.0"
