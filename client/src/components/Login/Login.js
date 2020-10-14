@@ -24,7 +24,9 @@ function Login() {
       // },
     });
   }
-
+  if (response?.authorizeWithGithub?.user?.name) {
+    console.log('response:', response);
+  }
   return (
     <div>
       <div className='githubLogin' onClick={() => getUsersCode()}>
