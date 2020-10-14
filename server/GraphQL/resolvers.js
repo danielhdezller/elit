@@ -8,7 +8,7 @@ const resolvers = {
   Query: {
     me: () => currentUser,
     githubLoginUrl: () =>
-      `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&scope=user`
+      `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&scope=user`,
   },
   Mutation: {
     async authorizeWithGithub(parent, { code }) {
@@ -33,11 +33,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
-
-/*
-Sessions
-session_id | user_id
------------|---------
-abcdefgh   | marcin.kolny@gmail.com
-*/
