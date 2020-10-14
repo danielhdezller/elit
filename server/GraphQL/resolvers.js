@@ -12,7 +12,6 @@ const resolvers = {
   },
   Mutation: {
     async authorizeWithGithub(parent, { code }) {
-      console.log('code', code);
       // 1. Obtain data from GitHub
       let githubUser = await requestGithubUser({
         client_id: `${process.env.CLIENT_ID}`,
@@ -27,6 +26,7 @@ const resolvers = {
         avatar: githubUser.avatar_url,
       };
       // 3. Return user data and their token
+      console.log('currentUser:', currentUser);
       return { user: currentUser, token: githubUser.access_token };
     },
   },
