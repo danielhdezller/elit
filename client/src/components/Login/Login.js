@@ -52,7 +52,7 @@ const Login = () => {
       className={classes.button}
       startIcon={<GitHubIcon />}
     >
-      Login/Signup
+      {code ? 'logout':'login'}
     </Button>
   );
 }
