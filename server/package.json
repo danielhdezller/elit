@@ -12,6 +12,7 @@
   "dependencies": {
     "apollo-server": "^2.18.2",
     "dotenv": "^8.2.0",
-    "graphql": "^15.3.0"
+    "graphql": "^15.3.0",
+    "sequelize": "^6.3.5"
   }
 }
