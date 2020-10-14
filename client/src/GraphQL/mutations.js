@@ -5,8 +5,12 @@ export const GET_USER_DATA = gql`
     authorizeWithGithub(code: $code) {
       token
       user {
-        githubLogin
+        id
+        email
         name
+        githubLogin
+        githubToken
+        location
         avatar
       }
     }
