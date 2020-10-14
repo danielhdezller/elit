@@ -8,38 +8,22 @@ import { GET_USER_DATA } from '../../GraphQL/mutations';
 
 function Login() {
   const history = useHistory();
-
   const [getUsersCode, { data }] = useLazyQuery(GET_USER_CODE);
-
   if (data) {
     console.log('data:', data);
     window.location.href = data.githubLoginUrl;
   }
-
-  console.log('history.location.search:', history.location);
   const userCode = history.location.search.split('=').slice(1).join();
-  console.log('userCode:', userCode);
-
-  // mutation here then
-  // Apolo client on completed
   const [mutateUser, { data: response }] = useMutation(GET_USER_DATA);
-  // console.log('user:', user);
-
-  if (userCode && !response?.authorizeWithGithub?.user.name) {
+  if (userCode && !response?.authorizeWithGithub?.user?.name) {
     mutateUser({
       variables: { code: userCode },
-      // onError(error) {
-      //   console.log('error:', error);
+      //MO THIS DOSENT WORK PROPERLY
+      // onCompleted({ mutateUser }) {
+      //   // history.push('/profile');
       // },
-      onCompleted({ mutateUser }) {
-        history.push('/profile');
-      },
     });
   }
-  console.log('response:', response);
-  // if (response?.authorizeWithGithub?.user.name) {
-  //   history.push('/profile');
-  // }
 
   return (
     <div>
