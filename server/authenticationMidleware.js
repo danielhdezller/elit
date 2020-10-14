@@ -2,7 +2,6 @@ require('dotenv').config();
 const fetch = require('node-fetch');
 
 const requestGithubToken = (credentials) => {
-  console.log('credentials:', credentials);
   return fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: {
