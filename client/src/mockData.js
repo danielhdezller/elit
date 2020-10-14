@@ -9,8 +9,8 @@ const db = [
   {
     id: 2,
     name: 'Basia',
-    familyName: 'Czeska',
-    userName: 'b-aha',
+    familyName: 'Czeska', //no familyname in data
+    userName: 'b-aha', //login
     techStack: ['Python', 'React'],
   },
   {

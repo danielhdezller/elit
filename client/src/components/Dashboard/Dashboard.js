@@ -1,12 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import data from '../../mockData';
+import { getUserProfileInfo } from '../../container/ApiService';
 
 const Dashboard = () => {
-  const [firstName, setFirstName] = useState('')
-  const [familyName, setFamilyName] = useState('')
+  const [firstName, setFirstName] = useState('');
+  const [familyName, setFamilyName] = useState('');
   // const [techStack, setTechStack] = useState([])
+  const [profileInformation, setProfileInformation] = useState([])
 
-  const handleNameChange = (e) => setFirstName(e.target.value)
-  const handleFamilyNameChange = (e) => setFamilyName(e.target.value)
+  const handleNameChange = (e) => setFirstName(e.target.value);
+  const handleFamilyNameChange = (e) => setFamilyName(e.target.value);
+
+  useEffect(() => {
+    let userInfo = getUserProfileInfo()
+     
+      setProfileInformation(userInfo)
+    
+  },[]);
+  console.log(profileInformation)
 
   return (
     <div>
@@ -76,7 +87,7 @@ const Dashboard = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
