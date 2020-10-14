@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Filtering from '../Filtering/Filtering'
 import User from '../User/User'
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+
 
 const Home = ({ users }) => {
   const usersList = users.map((user) => (
@@ -16,11 +19,12 @@ const Home = ({ users }) => {
   const [filter, setFilter] = useState(usersList)
 
   return (
-    <div>
-      <h1>Welcome to Elite</h1>
+    <Container maxWidth='lg'>
       <Filtering filter={filter} setFilter={setFilter} usersList={usersList} />
-      {filter}
-    </div>
+      <Grid container spacing={2}>
+        {filter}
+      </Grid>
+    </Container>
   )
 }
 
