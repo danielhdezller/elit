@@ -27,9 +27,12 @@ const Login = () => {
   }
   const userCode = history.location.search.split('=').slice(1).join();
   const [mutateUser, { data: response }] = useMutation(GET_USER_DATA, {
-    onCompleted: ({ mutateUser }) => {
-      history.push('/profile');
-    },
+    // onCompleted: ({ mutateUser }) => {
+    // console.log(
+    //   'responselogin',
+    //   response.authorizeWithGithub.user.githubLogin
+    // );
+    // },
   });
   if (userCode && !code) {
     mutateUser({
@@ -39,6 +42,7 @@ const Login = () => {
   }
   if (response) {
     console.log('response:', response);
+    history.push(`/profile/${response.authorizeWithGithub.user.githubLogin}`);
     let userLoged = {
       authenticated: true,
       userId: response.authorizeWithGithub.user.id,
