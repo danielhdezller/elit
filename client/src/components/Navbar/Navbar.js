@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Login from '../Login/Login';
+import Logout from '../Logout/Logout';
+import { useSelector } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -26,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
   const classes = useStyles();
+  const authenticated = useSelector((state) => state.authenticated);
+  console.log('authenticated:', authenticated);
 
   return (
     <div className={classes.root}>
@@ -42,7 +46,7 @@ const Navbar = () => {
           <Typography variant='h4' className={classes.title}>
             Elit
           </Typography>
-          <Login />
+          {authenticated.authenticated ? <Logout /> : <Login />}
         </Toolbar>
       </AppBar>
     </div>

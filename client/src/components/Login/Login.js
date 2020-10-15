@@ -8,6 +8,8 @@ import { GET_USER_DATA } from '../../GraphQL/mutations';
 import { Button } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { makeStyles } from '@material-ui/core/styles';
+import Logout from '../Logout/Logout';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -16,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
-
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   const [code, setcode] = useState(false);
@@ -30,16 +32,18 @@ const Login = () => {
   const userCode = history.location.search.split('=').slice(1).join();
   const [mutateUser, { data: response }] = useMutation(GET_USER_DATA, {
     onCompleted: ({ mutateUser }) => {
-      console.log('hello');
       history.push('/profile');
     },
   });
   if (userCode && !code) {
-    console.log('usercode', userCode);
     mutateUser({
       variables: { code: userCode },
     });
     setcode(true);
+    dispatch({
+      type: 'UPDATE_AUTHENTICATION',
+      payload: true,
+    });
   }
   if (response) {
     console.log('response:', response);
@@ -47,14 +51,18 @@ const Login = () => {
   return (
     <Button
       onClick={() => getUsersCode()}
-      variant="contained"
-      color="secondary"
+      variant='contained'
+      color='secondary'
       className={classes.button}
       startIcon={<GitHubIcon />}
     >
-      {code ? 'logout':'login'}
+      {code ? <Logout /> : 'LOGIN'}
     </Button>
   );
+<<<<<<< HEAD
+};
+=======
 }
 
+>>>>>>> 209016db315177ae83f25550fc9b10bf385b311a
 export default Login;
