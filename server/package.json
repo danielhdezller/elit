@@ -12,7 +12,9 @@
   "dependencies": {
     "apollo-server": "^2.18.2",
     "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
     "graphql": "^15.3.0",
+    "path": "^0.12.7",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",

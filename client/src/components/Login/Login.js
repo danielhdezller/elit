@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
+
   const classes = useStyles();
 
   const [code, setcode] = useState(false);
@@ -46,13 +47,14 @@ const Login = () => {
   return (
     <Button
       onClick={() => getUsersCode()}
-      variant='contained'
-      color='secondary'
+      variant="contained"
+      color="secondary"
       className={classes.button}
       startIcon={<GitHubIcon />}
     >
-      {code ? 'logout' : 'login'}
+      {code ? 'logout':'login'}
     </Button>
   );
-};
+}
+
 export default Login;
