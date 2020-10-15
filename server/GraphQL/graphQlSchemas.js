@@ -11,9 +11,12 @@ const typeDefs = gql`
   }
 
   type User {
+    id: Int
+    email: String
     name: String
     githubLogin: String
     githubToken: String
+    location: String
     avatar: String
   }
 

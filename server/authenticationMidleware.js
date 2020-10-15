@@ -32,7 +32,6 @@ const requestGithubUserAccount = (token) => {
 const requestGithubUser = async (credentials) => {
   const res = await requestGithubToken(credentials);
   const githubUser = await requestGithubUserAccount(res.access_token);
-  console.log('githubUser:', githubUser); //TO SEE THE USER DATA RESPONSE OF GITHUB
   return { ...githubUser, access_token: res.access_token };
 };
 

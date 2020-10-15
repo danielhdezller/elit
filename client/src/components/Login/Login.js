@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
-import './Login.scss';
+// import './Login.scss';
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
-import githubIcon from '../../assets/images/GithubIcon.png';
+// import githubIcon from '../../assets/images/GithubIcon.png';
 import { GET_USER_CODE } from '../../GraphQL/querys.js';
 import { GET_USER_DATA } from '../../GraphQL/mutations';
+import { Button } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { makeStyles } from '@material-ui/core/styles';
 
-function Login() {
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
+
+const Login = () => {
+
+  const classes = useStyles();
+
   const [code, setcode] = useState(false);
 
   const history = useHistory();
@@ -33,18 +45,15 @@ function Login() {
     console.log('response:', response);
   }
   return (
-    <div>
-      <div className='githubLogin' onClick={() => getUsersCode()}>
-        <img
-          className='githubIcon'
-          src={githubIcon}
-          alt='this is a github icon'
-          width='30px'
-          height='30px'
-        />
-        Login with Github
-      </div>
-    </div>
+    <Button
+      onClick={() => getUsersCode()}
+      variant="contained"
+      color="secondary"
+      className={classes.button}
+      startIcon={<GitHubIcon />}
+    >
+      {code ? 'logout':'login'}
+    </Button>
   );
 }
 
