@@ -1,9 +1,12 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
+
   type Query {
     githubLoginUrl: String!
     me: User
+    userData: User
+    getUsers: [User]
   }
 
   type Mutation {

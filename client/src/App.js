@@ -8,8 +8,13 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import users from './mockData';
 import UserProfile from './components/UserProfile/UserProfile';
+import { useQuery } from '@apollo/client';
+import { GET_ALL_USERS } from './GraphQL/querys'
 
 function App() {
+ 
+  const { loading, error, data } = useQuery(GET_ALL_USERS);
+
   return (
     <Provider store={store}>
       <Router>
