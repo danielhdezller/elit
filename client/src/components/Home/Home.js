@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import Filtering from '../Filtering/Filtering'
+import Filtering from '../Filtering/Filtering'
 import User from '../User/User'
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -15,8 +15,9 @@ const Home = ({ users }) => {
 
   return (
     <Container maxWidth='lg'>
-      {/* <Filtering setFilter={setFilter} /> */}
-      <Grid container spacing={2}>
+      <Filtering setFilter={setFilter} />
+      <Grid container spacing={2} justify="center"
+      >
         {filter?.map((user) => (
           <User
             key={user.id}

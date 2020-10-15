@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 345,
   },
 });
 
@@ -26,7 +26,7 @@ const User = ({ username, firstname, avatar }) => {
           <CardMedia
             component="img"
             alt="Contemplative Reptile"
-            height="140"
+            height="200"
             image={avatar}
             title="Contemplative Reptile"
           />

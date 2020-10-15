@@ -33,28 +33,35 @@ const Filtering = ({ setFilter, usersList }) => {
   }
 
   return (
-    <div className='btn-group-toggle' data-toggle='buttons'>
+    <div className='btn-group-toggle d-flex justify-content-center mb-5' data-toggle='buttons'
+    style={{
+      padding: '40px',
+      backgroundColor: 'beige'
+  }}
+    >
       <input
         name='javaScript'
         value={state.javaScript}
         type='checkbox'
         onChange={handleChange}
       />
-      Javascript
+      <h4 className='mr-5'>
+        JavaScript
+      </h4>
       <input
         name='python'
         value={state.python}
         type='checkbox'
         onChange={handleChange}
       />
-      Python
+      <h4 className='mr-5'>Python</h4>
       <input
         name='golang'
         value={state.golang}
         type='checkbox'
         onChange={handleChange}
       />
-      Golang
+      <h4>Golang</h4>
     </div>
   )
 }
