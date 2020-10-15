@@ -59,10 +59,5 @@ const Login = () => {
       {code ? <Logout /> : 'LOGIN'}
     </Button>
   );
-<<<<<<< HEAD
 };
-=======
-}
-
->>>>>>> 209016db315177ae83f25550fc9b10bf385b311a
 export default Login;
