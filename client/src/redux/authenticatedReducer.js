@@ -1,5 +1,6 @@
 const initialState = {
   authenticated: false,
+  userId: '',
 };
 
 const authenticatedReducer = (state = initialState, action) => {
@@ -7,7 +8,8 @@ const authenticatedReducer = (state = initialState, action) => {
     case 'UPDATE_AUTHENTICATION':
       return {
         ...state,
-        authenticated: action.payload,
+        authenticated: action.payload.authenticated,
+        userId: action.payload.userId,
       };
     // case 'DELETE_AUTHENTICATION':
     //   return {
