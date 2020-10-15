@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_ALL_USERS } from '../../GraphQL/querys'
 
 const Dashboard = () => {
+
+  const { loading, error, data } = useQuery(GET_ALL_USERS);
+
+  console.log('%c%s', 'color: #ff0000', data);
+
   const [firstName, setFirstName] = useState('');
   const [familyName, setFamilyName] = useState('');
   // const [techStack, setTechStack] = useState([])

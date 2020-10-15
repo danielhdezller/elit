@@ -10,6 +10,14 @@ const resolvers = {
     me: () => currentUser,
     githubLoginUrl: () =>
       `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&scope=user`,
+    getUsers: async () => {
+      try {
+        user = await User.findAll();
+        return user
+      } catch (error) {
+        console.log(error)
+      }
+    }
   },
   Mutation: {
     async authorizeWithGithub(parent, { code }) {

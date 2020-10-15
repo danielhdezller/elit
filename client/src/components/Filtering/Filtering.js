@@ -22,7 +22,7 @@ const Filtering = ({ setFilter, usersList }) => {
   }
 
   const applyFilter = (arr, str) =>
-    arr.filter((el) => el.props.techstack.includes(str))
+    arr.filter((data) => data.techstack.includes(str))
 
   const updateFilter = () => {
     let result = usersList

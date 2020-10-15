@@ -1,28 +1,30 @@
-import React, { useState } from 'react'
-import Filtering from '../Filtering/Filtering'
+import React, { useState, useEffect } from 'react'
+// import Filtering from '../Filtering/Filtering'
 import User from '../User/User'
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 
 const Home = ({ users }) => {
-  const usersList = users.map((user) => (
-    <User
-      key={user.id}
-      username={user.userName}
-      firstname={user.name}
-      familyname={user.familyName}
-      techstack={user.techStack}
-    />
-  ))
 
-  const [filter, setFilter] = useState(usersList)
+  const [filter, setFilter] = useState(users)
+
+  useEffect(() => {
+    setFilter(users)
+  }, [users])
 
   return (
     <Container maxWidth='lg'>
-      <Filtering filter={filter} setFilter={setFilter} usersList={usersList} />
+      {/* <Filtering setFilter={setFilter} /> */}
       <Grid container spacing={2}>
-        {filter}
+        {filter?.map((user) => (
+          <User
+            key={user.id}
+            username={user.githubLogin}
+            firstname={user.name}
+            avatar={user.avatar}
+          />
+        ))}
       </Grid>
     </Container>
   )
