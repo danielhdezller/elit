@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_ALL_USERS } from '../../GraphQL/querys'
+// import { useQuery } from '@apollo/client';
+// import { GET_ALL_USERS } from '../../GraphQL/querys'
 
 const Dashboard = () => {
 
-  const { loading, error, data } = useQuery(GET_ALL_USERS);
+  // const { loading, error, data } = useQuery(GET_ALL_USERS);
 
-  console.log('%c%s', 'color: #ff0000', data);
+  // console.log('%c%s', 'color: #ff0000', data);
 
   const [firstName, setFirstName] = useState('');
   const [familyName, setFamilyName] = useState('');

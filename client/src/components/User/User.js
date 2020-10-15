@@ -21,7 +21,7 @@ const User = ({ username, firstname, avatar }) => {
 
   return (
     <Grid item>
-      <Card className={classes.root}>
+      <Card className={classes.root} >
         <CardActionArea>
           <CardMedia
             component="img"
