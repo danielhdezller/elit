@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
-const db = {};
 require('dotenv').config();
 
-const elitDb = new Sequelize(
+const sequelize = new Sequelize(
   process.env.SEQUELIZE_DB,
   process.env.SEQUELIZE_ROLE,
   process.env.SEQUELIZE_PASSWORD,
@@ -19,7 +18,7 @@ const elitDb = new Sequelize(
   }
 );
 
-elitDb
+sequelize
   .authenticate()
   .then(() => {
     console.log('connected to Elit DB');
@@ -28,7 +27,7 @@ elitDb
     console.error('unable to connect to Elit Db', err);
   });
 
-const User = elitDb.define('User', {
+const User = sequelize.define('User', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -58,5 +57,8 @@ const User = elitDb.define('User', {
     allowNull: false,
   },
 });
-
-module.exports.User = User;
+const db = {};
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+db.User = User;
+module.exports = db;

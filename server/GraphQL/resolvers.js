@@ -1,5 +1,6 @@
 require('dotenv').config();
-const { User } = require('../models/index');
+const db = require('../models/index');
+const User = db.User;
 const { requestGithubUser } = require('../authenticationMidleware');
 
 let currentUser;
@@ -12,7 +13,7 @@ const resolvers = {
   },
   Mutation: {
     async authorizeWithGithub(parent, { code }) {
-      console.log('User:', User);
+      console.log('User:', User.findOne);
       // 1. Obtain data from GitHub
       let githubUser = await requestGithubUser({
         client_id: `${process.env.CLIENT_ID}`,
@@ -29,33 +30,39 @@ const resolvers = {
         location: githubUser.location,
         avatar: githubUser.avatar_url,
       };
-      console.log('currentUser:', currentUser.id);
+      console.log('currentUser:', currentUser);
       // 3. Return user data and their token
-      let user = await User.findOne({
-        where: { id: `${currentUser.id}` },
-      });
-      if (!user) {
-        const {
-          id,
-          email,
-          name,
-          login,
-          access_token,
-          location,
-          avatar_url,
-        } = currentUser;
-        console.log('avatar_url:', avatar_url);
-
-        await User.create({
-          id: id,
-          email: email,
-          name: name,
-          githubLogin: login,
-          githubToken: access_token,
-          location: location,
-          avatar: avatar_url,
+      let user;
+      try {
+        user = await User.findOne({
+          where: { id: `${currentUser.id}` },
         });
+
+        if (!user) {
+          const {
+            id,
+            email,
+            name,
+            githubLogin,
+            githubToken,
+            location,
+            avatar,
+          } = currentUser;
+          await User.create({
+            id: id,
+            email: email,
+            name: name,
+            githubLogin: githubLogin,
+            githubToken: githubToken,
+            location: location,
+            avatar: avatar,
+          });
+        }
+      } catch (err) {
+        console.error(err);
       }
+      console.log('hello:');
+
       console.log('user:', user);
       return { user: currentUser, token: githubUser.access_token };
     },
