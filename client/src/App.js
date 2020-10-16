@@ -31,7 +31,7 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route
             exact
-            path='/members/:name'
+            path='/member/:name'
             render={({ match }) => <UserProfile match={match} users={users} />}
           />
         </Switch>

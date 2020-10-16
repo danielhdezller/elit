@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
 const UserProfile = ({ match, users }) => {
   const classes = useStyles();
 
-  // const name = match.params.name
+  const name = match.params.name
+  console.log(name)
 
   // const firstName = users.map((user) =>
   //   user.userName === name ? user.name : null
@@ -40,7 +41,7 @@ const UserProfile = ({ match, users }) => {
 
   return (
     <>
-      <Sidebar/>
+      <Sidebar />
       <div className='row d-flex flex-column justify-content-center align-items-center py-5'
       //  style={{ backgroundColor: 'beige' }}
       >
