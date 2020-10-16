@@ -10,6 +10,7 @@ import users from './mockData';
 import UserProfile from './components/UserProfile/UserProfile';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_USERS } from './GraphQL/querys';
+import Footer from './components/Footer/Footer'
 
 function App() {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
@@ -34,6 +35,7 @@ function App() {
           />
         </Switch>
       </Router>
+      <Footer />
     </Provider>
   );
 }
