@@ -11,7 +11,10 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   root: {
-    width: 345,
+    // width: 200,
+    marginLeft: 10,
+    marginRight: 10,
+    height: 250
   },
 });
 
@@ -20,7 +23,7 @@ const User = ({ username, firstname, avatar }) => {
   const classes = useStyles();
 
   return (
-    <Grid item>
+    <Grid item align='center'>
       <Card className={classes.root} >
         <Link to={`/members/${username}`}>
           <CardActionArea>
