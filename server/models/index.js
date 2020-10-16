@@ -56,10 +56,55 @@ const User = sequelize.define('User', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  userStacks: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+    allowNull: true,
+  },
+  id_event: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+    allowNull: true,
+  },
+});
+
+const Event = sequelize.define('Event', {
+  id_event: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  date: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
+  link: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  location: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  eventLeader: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  participants: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+  },
 });
 
 const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.User = User;
+db.Event = Event;
 module.exports = db;
