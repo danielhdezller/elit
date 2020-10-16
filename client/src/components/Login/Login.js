@@ -42,7 +42,7 @@ const Login = () => {
   }
   if (response) {
     console.log('response:', response);
-    history.push(`/members/${response.authorizeWithGithub.user.githubLogin}`);
+    history.push(`/member/${response.authorizeWithGithub.user.githubLogin}`);
     let userLoged = {
       authenticated: true,
       userId: response.authorizeWithGithub.user.id,

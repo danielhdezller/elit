@@ -10,7 +10,9 @@ import users from './mockData';
 import UserProfile from './components/UserProfile/UserProfile';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_USERS } from './GraphQL/querys';
-import Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer';
+import CommunityEvents from './containers/CommunityEvents/CommunityEvents';
+import MyEvents from './containers/MyEvents/MyEvents';
 
 function App() {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
@@ -30,9 +32,15 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route
             exact
-            path='/members/:name'
+            path='/member/:name'
             render={({ match }) => <UserProfile match={match} users={users} />}
           />
+          <Route
+            exact
+            path='/member/:name/events'
+            component={CommunityEvents}
+          />
+          <Route exact path='/member/:name/myevents' render={MyEvents} />
         </Switch>
       </Router>
       <Footer />
