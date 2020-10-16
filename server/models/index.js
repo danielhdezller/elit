@@ -58,6 +58,7 @@ const User = sequelize.define('User', {
     allowNull: false,
   },
 });
+
 const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
