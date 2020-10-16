@@ -22,23 +22,23 @@ const User = ({ username, firstname, avatar }) => {
   return (
     <Grid item>
       <Card className={classes.root} >
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Contemplative Reptile"
-            height="200"
-            image={avatar}
-            title="Contemplative Reptile"
-          />
-          <CardContent>
-            <Link to={`/members/${username}`}>
-              <Typography gutterBottom variant="h5" component="h2">
-                {firstname} 
+        <Link to={`/members/${username}`}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="Contemplative Reptile"
+              height="200"
+              image={avatar}
+              title="Contemplative Reptile"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="h2">
+                {firstname}
               </Typography>
-            </Link>
-            {/* {techstack.map(i => <Chip key={i} color='secondary' size="small" label={i} />)} */}
-          </CardContent>
-        </CardActionArea>
+              {/* {techstack.map(i => <Chip key={i} color='secondary' size="small" label={i} />)} */}
+            </CardContent>
+          </CardActionArea>
+        </Link>
       </Card>
     </Grid>
   )
