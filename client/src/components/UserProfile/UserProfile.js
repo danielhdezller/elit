@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
+import Sidebar from '../Sidebar/Sidebar'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -39,6 +40,7 @@ const UserProfile = ({ match, users }) => {
 
   return (
     <>
+      <Sidebar/>
       <div className='row d-flex flex-column justify-content-center align-items-center py-5'
       //  style={{ backgroundColor: 'beige' }}
       >
