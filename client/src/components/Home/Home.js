@@ -6,7 +6,6 @@ import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5
   },
@@ -37,12 +36,18 @@ const Home = ({ users }) => {
       {/* <Filtering setFilter={setFilter} /> */}
       <div className="card text-center mt-5">
         <div className="card-body">
-          <h5 className="card-title display-4">connect.collaborate.create()</h5>
+          <h5 className="card-title display-4">
+            connect.collaborate.create()
+            </h5>
         </div>
       </div>
       <div>
 
-        <Carousel ssr={false} responsive={responsive} infinite={true}>
+        <Carousel
+          ssr={false}
+          responsive={responsive}
+          infinite={true}
+        >
           {(filter || [])?.map((user) => (
 
             <User
