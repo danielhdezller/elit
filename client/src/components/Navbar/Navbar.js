@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
@@ -10,6 +10,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import 'fontsource-roboto';
 import { Link } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {connect} from 'react-redux'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,16 +30,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = () => {
+ 
+  
+
+
+
+const Navbar = (props) => {
+  // useEffect(() => {
+  //   console.log("props.clickData",props.clickData)
+  // },[props.clickData])
+
   const classes = useStyles();
   const authenticated = useSelector((state) => state.authenticated);
-  console.log('authenticated:', authenticated);
+  
+  // const display = useSelector((state) => state.display)
+  // const dispatch = useDispatch()
+  
+  function onClickHandler() {
+    // dispatch({type:"SHOW"})
+    const currentDisplay = authenticated.display
+    console.log('authenticated:', authenticated);
+    console.log('currentDisplay', currentDisplay)
+    props.clickUpdateData(!currentDisplay)
+  }
 
   return (
     <div className={classes.root}>
       <AppBar position='static' className={classes.bg}>
         <Toolbar>
-          <IconButton
+          <IconButton onClick={onClickHandler}
             edge='start'
             className={classes.menuButton}
             color='inherit'
@@ -53,5 +75,20 @@ const Navbar = () => {
     </div>
   );
 };
+// get data
+const mapStateToProps = (state) => {
+  return {
+    clickData: state.authenticatedReducer
+  }
+}
+//update data
+const mapDispatchToProps = (dispatch) => {
+ return {
+   clickUpdateData: (currentDisplay) => dispatch({type: "TOGGLE", data: currentDisplay})
+ }
+}
+// update redux with component data
 
-export default Navbar;
+// authenticatedReducer
+export default connect(mapStateToProps,
+  mapDispatchToProps)(Navbar);

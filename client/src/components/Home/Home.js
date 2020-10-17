@@ -4,7 +4,6 @@ import User from '../User/User';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import bg from '../../assets/images/bg.jpg';
-import Sidebar from '../Sidebar/Sidebar';
 
 const Home = ({ users }) => {
   const [filter, setFilter] = useState(users);
@@ -41,14 +40,7 @@ const Home = ({ users }) => {
             avatar={user.avatar}
           />
         ))}
-      </Grid>
-      {filter?.map((user) => (
-        <Sidebar
-          key={user.id}
-          username={user.githubLogin}
-          firstname={user.name}
-        />
-      ))}
+      </Grid>      
     </Container>
   );
 };

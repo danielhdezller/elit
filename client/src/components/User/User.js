@@ -22,7 +22,7 @@ const User = ({ username, firstname, avatar }) => {
   return (
     <Grid item>
       <Card className={classes.root} >
-        <Link to={`/members/${username}`}>
+        <Link to={`/member/${username}`}>
           <CardActionArea>
             <CardMedia
               component="img"

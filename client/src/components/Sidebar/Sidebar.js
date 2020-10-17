@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
-  // const [isOpen, setIsOpen] = useState(false);
+  
   const username = useSelector((state) => state.authenticated.userName);
   console.log('username:', username)
 

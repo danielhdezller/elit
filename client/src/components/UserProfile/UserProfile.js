@@ -40,6 +40,8 @@ const UserProfile = ({ match, users }) => {
   // )
 
   return (
+    // get data from redux
+    // if display = true return sidebar
     <>
       <Sidebar />
       <div className='row d-flex flex-column justify-content-center align-items-center py-5'

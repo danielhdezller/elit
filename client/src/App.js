@@ -11,7 +11,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_USERS } from './GraphQL/querys';
 import Footer from './components/Footer/Footer'
-import Sidebar from './components/Sidebar/Sidebar'
+
 
 function App() {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
