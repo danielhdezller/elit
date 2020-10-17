@@ -14,16 +14,6 @@ const authenticatedReducer = (state = initialState, action) => {
         userId: action.payload.userId,
         userName: action.payload.userName,
       };
-    case "SHOW":
-      return {
-       ...state,
-       display: true
-      };
-    case "HIDE":
-      return {
-        ...state,
-        display: false
-      }
     case "TOGGLE":
       return {
         ...state,

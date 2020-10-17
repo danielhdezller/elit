@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
@@ -30,27 +30,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- 
-  
-
-
-
 const Navbar = (props) => {
-  // useEffect(() => {
-  //   console.log("props.clickData",props.clickData)
-  // },[props.clickData])
-
   const classes = useStyles();
   const authenticated = useSelector((state) => state.authenticated);
   
-  // const display = useSelector((state) => state.display)
-  // const dispatch = useDispatch()
-  
   function onClickHandler() {
-    // dispatch({type:"SHOW"})
     const currentDisplay = authenticated.display
-    console.log('authenticated:', authenticated);
-    console.log('currentDisplay', currentDisplay)
+    // console.log('authenticated:', authenticated)
+    // console.log('currentDisplay', currentDisplay)
     props.clickUpdateData(!currentDisplay)
   }
 
@@ -81,14 +68,13 @@ const mapStateToProps = (state) => {
     clickData: state.authenticatedReducer
   }
 }
+
 //update data
 const mapDispatchToProps = (dispatch) => {
  return {
    clickUpdateData: (currentDisplay) => dispatch({type: "TOGGLE", data: currentDisplay})
  }
 }
-// update redux with component data
 
-// authenticatedReducer
 export default connect(mapStateToProps,
   mapDispatchToProps)(Navbar);

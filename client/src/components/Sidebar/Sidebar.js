@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 const Sidebar = () => {
   
   const username = useSelector((state) => state.authenticated.userName);
-  console.log('username:', username)
-
+  
   return (
     <div>
       <h4>{username}</h4>
