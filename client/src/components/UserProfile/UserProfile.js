@@ -30,6 +30,9 @@ const UserProfile = ({ match}) => {
   const authenticated = useSelector((state) => state.authenticated);
   console.log('authenticated UserProfule', authenticated)
   console.log('display UserProfule', authenticated. display)
+
+
+  
   // const name = match.params.name
   // console.log(name)
 

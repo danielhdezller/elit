@@ -1,18 +1,26 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
 import { useSelector } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+// import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import 'fontsource-roboto';
 import { Link } from 'react-router-dom';
-import {useDispatch} from 'react-redux';
-import {connect} from 'react-redux'
-
+import clsx from 'clsx';
+import {
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core/';
+// import { useSelector } from 'react-redux';
+// import { withRouter } from 'react-router-dom'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,53 +36,82 @@ const useStyles = makeStyles((theme) => ({
   bg: {
     backgroundColor: '#1d1d1d',
   },
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
 }));
 
-const Navbar = (props) => {
+const Navbar = () => {
   const classes = useStyles();
   const authenticated = useSelector((state) => state.authenticated);
-  
-  function onClickHandler() {
-    const currentDisplay = authenticated.display
-    // console.log('authenticated:', authenticated)
-    // console.log('currentDisplay', currentDisplay)
-    props.clickUpdateData(!currentDisplay)
-  }
+  const [state, setState] = React.useState({ left: false });
+  console.log('authenticated:', authenticated);
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, [anchor]: open });
+  };
+
+
+  const list = (anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {['Inbox', 'Starred'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
   return (
     <div className={classes.root}>
       <AppBar position='static' className={classes.bg}>
         <Toolbar>
-          <IconButton onClick={onClickHandler}
+          {/* <IconButton
             edge='start'
             className={classes.menuButton}
             color='inherit'
             aria-label='menu'
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant='h4' className={classes.title}>
-            <Link to='/'>Elit</Link>
-          </Typography>
-          {authenticated.authenticated ? <Logout /> : <Login />}
+          > */}
+          <div>
+            {['left'].map((anchor) => (
+              <React.Fragment key={anchor}>
+                <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+                <SwipeableDrawer
+                  anchor={anchor}
+                  open={state[anchor]}
+                  onClose={toggleDrawer(anchor, false)}
+                  onOpen={toggleDrawer(anchor, true)}
+                >
+                  {list(anchor)}
+                </SwipeableDrawer>
+              </React.Fragment>
+            ))}
+          </div>
+          <MenuIcon />
+          {/* </IconButton> */}
+        <Typography variant='h4' className={classes.title}>
+          <Link to='/'>Elit</Link>
+        </Typography>
+        {authenticated.authenticated ? <Logout /> : <Login />}
         </Toolbar>
       </AppBar>
-    </div>
+    </div >
   );
 };
-// get data
-const mapStateToProps = (state) => {
-  return {
-    clickData: state.authenticatedReducer
-  }
-}
 
-//update data
-const mapDispatchToProps = (dispatch) => {
- return {
-   clickUpdateData: (currentDisplay) => dispatch({type: "TOGGLE", data: currentDisplay})
- }
-}
-
-export default connect(mapStateToProps,
-  mapDispatchToProps)(Navbar);
+export default Navbar;
