@@ -6,7 +6,7 @@ import {
   // ListItemIcon,
   ListItemText
 } from '@material-ui/core/';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
 
@@ -14,28 +14,45 @@ const Sidebar = (props) => {
   const username = useSelector((state) => state.authenticated.userName);
   const authenticated = useSelector((state) => state.authenticated);
   const { history } = props;
+  const dispatch = useDispatch();
   // const [openSidebar, setOpenSidebar] = React.useState('close');
+
+  const linkClick = (path) => {
+    handleClose();
+    history.push(path)
+  };
+
   const itemsList = [
     {
+      text: "MY PROFILE",
+      onClick: () => linkClick(`/member/${username}`)
+    },
+    {
       text: "ALL EVENTS",
-      onClick: () => history.push(`/member/${username}/events`)
+      onClick: () => linkClick(`/member/${username}/events`)
     },
     {
       text: "MY EVENTS",
-      onClick: () => history.push(`/member/${username}/myevents`)
+      onClick: () => linkClick(`/member/${username}/myevents`)
     },
     {
       text: "EDIT PROFILE",
-      onClick: () => history.push(`/member/${username}/editprofile`)
+      onClick: () => linkClick(`/member/${username}/editprofile`)
     },
     {
       text: "COMMUNITY",
-      onClick: () => history.push(`/member/${username}/community`)
+      onClick: () => linkClick(`/member/${username}/community`)
     }
   ];
+
+  const handleClose = () => {
+    dispatch({type:"TOGGLE", data: false})
+  };
+
   return (
     <Drawer   
-      open={authenticated.display}      
+      open={authenticated.display}
+      onClose={handleClose}      
     >
       <List>
         {itemsList.map((item, index) => {
@@ -49,8 +66,8 @@ const Sidebar = (props) => {
         })}
       </List>
     </Drawer>
-  )
-}
+  );
+};
 export default withRouter(Sidebar)
 
 

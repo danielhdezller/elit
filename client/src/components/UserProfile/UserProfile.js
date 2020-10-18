@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
-import Sidebar from '../Sidebar/Sidebar'
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +28,7 @@ const UserProfile = ({ match}) => {
   // get data from redux
   const authenticated = useSelector((state) => state.authenticated);
   console.log('authenticated UserProfule', authenticated)
-  console.log('display UserProfule', authenticated. display)
+  console.log('display UserProfule', authenticated.display)
 
 
   
@@ -49,7 +48,7 @@ const UserProfile = ({ match}) => {
   return (
     // if display = true return sidebar
     <>
-      {authenticated.display ? <Sidebar /> : ''}
+      
 
       <div className='row d-flex flex-column justify-content-center align-items-center py-5'
       //  style={{ backgroundColor: 'beige' }}
