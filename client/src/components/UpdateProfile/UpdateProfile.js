@@ -1,8 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
-import './EventForm.scss';
-import { CREATE_EVENT } from '../../GraphQL/mutations';
+import './UpdateProfile.scss';
+import { CREATE_USERDATA } from '../../GraphQL/mutations';
 import { useMutation } from '@apollo/client';
 
 const CustomSelect = ({ label, ...props }) => {
@@ -18,43 +19,31 @@ const CustomSelect = ({ label, ...props }) => {
   );
 };
 
-const EventForm = () => {
-  const [createEvent, { data }] = useMutation(CREATE_EVENT);
+const UpdateProfileEventForm = () => {
+  const [CreateUserData, { data }] = useMutation(CREATE_USERDATA);
   console.log('data:', data);
-
+  const userId = useSelector((store)=> {
+    return store.authenticated.userId
+  })
+  console.log(userId)
   return (
     <div>
       <div>
-        <h3>Add a new event to de community</h3>
+        <h3>Update Profile</h3>
         <Formik
           initialValues={{
-            eventTitle: '',
-            date: '',
-            eventDescription: '',
-            eventLink: '',
-            categories: '',
-            location: '',
-            userName: '', //its not finished here I will put the name of the user loged it dosent apeear in the form is undher the hood
+            // name: '', //from Redux
+            // userName: '', // from Redux
+            linkedIn: '', //needs to save
+            
           }}
-          validationSchema={Yup.object({
-            eventTitle: Yup.string().required('Required'),
-            date: Yup.date().required('Required'),
-            eventDescription: Yup.string().required('Required'),
-            eventLink: Yup.string(),
-            categories: Yup.string()
-              .oneOf(
-                ['Teaching Session', 'Tech Talk', 'Collaboration', 'MeetUp'],
-                'Invalid Category'
-              )
-              .required('Required'),
-            location: Yup.string().required('Required'),
-          })}
+
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               // alert(JSON.stringify(values));
               console.log('values', values);
-              console.log('values.eventLink', values.eventDescription);
-              createEvent({ variables: { input: values } });
+              // console.log('values.eventLink', values.eventDescription);
+              CreateUserData({ variables: { input: values, id: userId } });
               setSubmitting(false);
             }, 400);
           }}
@@ -62,40 +51,15 @@ const EventForm = () => {
           {({ isSubmitting }) => (
             <Form autoComplete='off'>
               <Field
-                type='eventTitle'
-                placeholder='Event title'
-                name='eventTitle'
+                type='text'
+                placeholder='LinkedIn'
+                name='linkedIn'
               />
               <ErrorMessage
                 className='error'
-                name='eventTitle'
+                name='linkedIn'
                 component='div'
               />
-              <Field type='datetime-local' name='date' />
-              <ErrorMessage name='date' component='div' />
-              <Field
-                className='fildDescription'
-                type='eventDescription'
-                placeholder='Event description'
-                name='eventDescription'
-              />
-              <ErrorMessage name='eventDescription' component='div' />
-              <Field
-                type='url'
-                placeholder='https://example.com'
-                pattern='https://.*'
-                name='eventLink'
-              />
-              <ErrorMessage name='eventLink' component='div' />
-              <CustomSelect label='Event Category' name='categories'>
-                <option value='Event Category'>Event Category</option>
-                <option value='Teaching Session'>Teaching Session</option>
-                <option value='Tech Talk'>Tech Talk</option>
-                <option value='Collaboration'>Collaboration</option>
-                <option value='MeetUp'>MeetUp</option>
-              </CustomSelect>
-              <Field type='location' placeholder='Location' name='location' />
-              <ErrorMessage name='location' component='div' />
               <button type='submit' disabled={isSubmitting}>
                 Submit
               </button>
@@ -107,4 +71,4 @@ const EventForm = () => {
   );
 };
 
-export default EventForm;
+export default UpdateProfileEventForm;

@@ -28,6 +28,10 @@ module.exports = (elitDb, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    linkedIn: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
 
   User.associate = (db) => {

@@ -23,3 +23,10 @@ export const CREATE_EVENT = gql`
     }
   }
 `;
+export const CREATE_USERDATA = gql`
+  mutation CreateUserData($input: UserInput!, $id: Int) {
+    CreateUserData(input: $input, id: $id) {
+      linkedIn
+    }
+  }
+`;

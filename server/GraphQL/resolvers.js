@@ -39,6 +39,20 @@ const resolvers = {
       }
       return { eventTitle: input.eventTitle };
     },
+    
+    async CreateUserData(parent, { input, id }) {
+      console.log('linkedIn:', input);
+      try {
+        const user = await User.findOne({where: { id }})
+        console.log('USER!!!', user)
+        user.linkedIn = input.linkedIn
+        await user.save()
+        return user;
+      } catch (err) {
+        console.error(err);
+      }
+      
+    },
 
     async authorizeWithGithub(parent, { code }) {
       console.log('User:', User.findOne);

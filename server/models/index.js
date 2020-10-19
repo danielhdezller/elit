@@ -65,6 +65,10 @@ const User = sequelize.define('User', {
     type: Sequelize.ARRAY(Sequelize.TEXT),
     allowNull: true,
   },
+  linkedIn: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
 });
 
 const Event = sequelize.define('Event', {

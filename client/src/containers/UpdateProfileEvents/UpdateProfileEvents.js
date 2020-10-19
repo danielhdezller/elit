@@ -1,10 +1,10 @@
 import React from 'react';
-import EventForm from '../../components/EventForm/EventForm';
+import UpdateProfileEventForm from '../../components/UpdateProfile/UpdateProfile';
 
 function UpdateProfileEvents() {
   return (
     <div>
-      <EventForm />
+      <UpdateProfileEventForm />
     </div>
   );
 }

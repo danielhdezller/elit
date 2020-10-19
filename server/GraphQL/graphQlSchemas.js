@@ -5,11 +5,13 @@ const typeDefs = gql`
     githubLoginUrl: String!
     userData: User
     getUsers: [User]
+
   }
 
   type Mutation {
     authorizeWithGithub(code: String!): AuthPayload!
     CreateEvent(input: EventInput!): EventData!
+    CreateUserData(input: UserInput!, id: Int): User!
   }
 
   type User {
@@ -20,6 +22,7 @@ const typeDefs = gql`
     githubToken: String
     location: String
     avatar: String
+    linkedIn: String
   }
 
   type AuthPayload {
@@ -40,6 +43,11 @@ const typeDefs = gql`
     location: String
     userName: String
   }
+
+  input UserInput {
+    linkedIn: String
+  }
 `;
+
 
 module.exports = typeDefs;

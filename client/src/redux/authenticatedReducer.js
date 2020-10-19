@@ -3,6 +3,7 @@ const initialState = {
   userId: '',
   userName: '',
   display: false,
+  linkedIn: '',
 };
 
 const authenticatedReducer = (state = initialState, action) => {
