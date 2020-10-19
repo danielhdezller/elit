@@ -28,22 +28,26 @@ const UpdateProfileEventForm = () => {
   })
   
   const name = useSelector((store) => {
+    console.log('store',store.authenticated)
     return store.authenticated.userName
   })
   console.log('name',name)
+
+  const githubLogin = useSelector((store) => {
+    return store.authenticated.githubLogin
+  })
+  
+  console.log('githubLogin',githubLogin)
 
   return (
     <div>
       <div>
         <h3>Update Profile</h3>
         <Formik
-          initialValues={{
-            // name: '', //from Redux
-            // userName: '', // from Redux
+          initialValues={{                     
             linkedIn: '', //needs to save
             gitHub: '',
             portfolio: '',
-            
           }}
 
           onSubmit={(values, { setSubmitting }) => {
@@ -66,6 +70,16 @@ const UpdateProfileEventForm = () => {
               <ErrorMessage
                 className='error'
                 name='name'
+                component='div'
+              />
+              <Field
+                type='text'
+                name='githubLogin'
+                value = {githubLogin}
+              />
+              <ErrorMessage
+                className='error'
+                name='githubLogin'
                 component='div'
               />
               <Field

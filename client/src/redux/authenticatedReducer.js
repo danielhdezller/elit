@@ -5,18 +5,24 @@ const initialState = {
   display: false,
   linkedIn: '',
   gitHub: '',
-  portfolio: ''
+  portfolio: '',
+  githubLogin: ''
 };
 
 const authenticatedReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_AUTHENTICATION':
+      console.log('action.payload', action.payload)
       return {
         ...state,
         authenticated: action.payload.authenticated,
         userId: action.payload.userId,
         userName: action.payload.userName,
+        
+        githubLogin: action.payload.githubLogin,
+        
       };
+      
     case "TOGGLE":
       return {
         ...state,
