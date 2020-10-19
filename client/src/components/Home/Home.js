@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 // import Filtering from '../Filtering/Filtering'
+
 import User from '../User/User'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -24,16 +25,16 @@ const responsive = {
 };
 
 const Home = ({ users }) => {
-
-  const [filter, setFilter] = useState(users)
+  const [filter, setFilter] = useState(users);
 
   useEffect(() => {
-    setFilter(users)
-  }, [users])
+    setFilter(users);
+  }, [users]);
 
   return (
     <>
       {/* <Filtering setFilter={setFilter} /> */}
+
       <div className="card text-center mt-5">
         <div className="card-body">
           <h5 className="card-title display-4">
@@ -65,4 +66,4 @@ const Home = ({ users }) => {
   )
 }
 
-export default Home
+export default Home;

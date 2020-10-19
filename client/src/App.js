@@ -15,6 +15,7 @@ import CommunityEvents from './containers/CommunityEvents/CommunityEvents';
 import MyEvents from './containers/MyEvents/MyEvents';
 import Community from './components/Community/Community'
 
+
 function App() {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
 

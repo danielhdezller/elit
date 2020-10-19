@@ -1,6 +1,8 @@
 const initialState = {
   authenticated: false,
   userId: '',
+  userName: '',
+  display: false,
 };
 
 const authenticatedReducer = (state = initialState, action) => {
@@ -10,7 +12,14 @@ const authenticatedReducer = (state = initialState, action) => {
         ...state,
         authenticated: action.payload.authenticated,
         userId: action.payload.userId,
+        userName: action.payload.userName,
       };
+    case "TOGGLE":
+      return {
+        ...state,
+        display: action.data
+        
+      }
     // case 'DELETE_AUTHENTICATION':
     //   return {
     //     ...state,
