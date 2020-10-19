@@ -20,24 +20,17 @@ const CustomSelect = ({ label, ...props }) => {
 };
 
 const UpdateProfileEventForm = () => {
+
+  const [ fullName, setFullName ] = React.useState('')
   const [CreateUserData, { data }] = useMutation(CREATE_USERDATA);
-  console.log('data:', data);
 
-  const userId = useSelector((store)=> {
-    return store.authenticated.userId
-  })
+  const userId = useSelector(store=> store.authenticated.userId)
+  const name = useSelector(store =>  store.authenticated.userName)
+  const githubLogin = useSelector( store => store.authenticated.githubLogin)
   
-  const name = useSelector((store) => {
-    console.log('store',store.authenticated)
-    return store.authenticated.userName
-  })
-  console.log('name',name)
-
-  const githubLogin = useSelector((store) => {
-    return store.authenticated.githubLogin
-  })
-  
-  console.log('githubLogin',githubLogin)
+//intiliazied dispatch// for help we can take a look at Login.js=>bring dispatch here => 
+//create a new action => update=> essiantially same as UPDATE_AUTHENTICATION
+// and then we use MUTATION to save into the db
 
   return (
     <div>
@@ -65,7 +58,8 @@ const UpdateProfileEventForm = () => {
               <Field
                 type='text'
                 name='name'
-                value = {name}
+                value = {fullName}
+                onChange={(e)=> setFullName(e.target.value)}
               />
               <ErrorMessage
                 className='error'
