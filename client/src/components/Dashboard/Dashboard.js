@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 // import { GET_ALL_USERS } from '../../GraphQL/querys'
 
 const Dashboard = () => {
-
   // const { loading, error, data } = useQuery(GET_ALL_USERS);
 
   const [firstName, setFirstName] = useState('');
@@ -22,10 +21,11 @@ const Dashboard = () => {
             {/* <h3>settings</h3> */}
           </div>
           <div className='col-lg-10'>
-            <section className='rounded border border-secondary p-5 col-lg-10' >
-
+            <section className='rounded border border-secondary p-5 col-lg-10'>
               <div className='form-group row '>
-                <label className='col-sm-2 col-form-label font-weight-bold'>Name</label>
+                <label className='col-sm-2 col-form-label font-weight-bold'>
+                  Name
+                </label>
                 <div className='col-sm-6'>
                   <input
                     type='text'
@@ -36,7 +36,9 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className='form-group row'>
-                <label className='col-sm-2 col-form-label font-weight-bold'>Family name</label>
+                <label className='col-sm-2 col-form-label font-weight-bold'>
+                  Family name
+                </label>
                 <div className='col-sm-6'>
                   <input
                     type='text'
@@ -47,7 +49,9 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className='form-group row'>
-                <label className='col-sm-2 col-form-label font-weight-bold'>User name</label>
+                <label className='col-sm-2 col-form-label font-weight-bold'>
+                  User name
+                </label>
                 <div className='col-sm-6'>
                   <input
                     value='herol3oy'
@@ -57,27 +61,22 @@ const Dashboard = () => {
                   />
                 </div>
               </div>
-
               <div className='form-group row'>
                 <div className='col-sm-2 font-weight-bold'>Tech stack</div>
                 <div className='col-sm-6'>
                   <div className='form-check'>
-
                     <div>
                       <input className='form-check-input' type='checkbox' />
                       <label className='form-check-label'>Javascript</label>
                     </div>
-
                     <div>
                       <input className='form-check-input' type='checkbox' />
                       <label className='form-check-label'>Python</label>
                     </div>
-
                     <div>
                       <input className='form-check-input' type='checkbox' />
                       <label className='form-check-label'>Golang</label>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -85,11 +84,10 @@ const Dashboard = () => {
                 <div className='col-sm-6'>
                   <button type='submit' className='btn btn-success'>
                     Save
-                </button>
+                  </button>
                 </div>
               </div>
             </section>
-
           </div>
         </div>
       </form>

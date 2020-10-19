@@ -1,6 +1,7 @@
 const initialState = {
   authenticated: false,
   userId: '',
+  githubLogin: '',
   userName: '',
   display: false,
 };
@@ -12,14 +13,14 @@ const authenticatedReducer = (state = initialState, action) => {
         ...state,
         authenticated: action.payload.authenticated,
         userId: action.payload.userId,
+        githubLogin: action.payload.githubLogin,
         userName: action.payload.userName,
       };
-    case "TOGGLE":
+    case 'TOGGLE':
       return {
         ...state,
-        display: action.data
-        
-      }
+        display: action.data,
+      };
     // case 'DELETE_AUTHENTICATION':
     //   return {
     //     ...state,
