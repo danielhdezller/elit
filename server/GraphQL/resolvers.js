@@ -42,10 +42,13 @@ const resolvers = {
     
     async CreateUserData(parent, { input, id }) {
       console.log('linkedIn:', input);
+      console.log('gitHub:', input);
       try {
         const user = await User.findOne({where: { id }})
         console.log('USER!!!', user)
         user.linkedIn = input.linkedIn
+        user.gitHub = input.gitHub
+        user.portfolio = input.portfolio
         await user.save()
         return user;
       } catch (err) {

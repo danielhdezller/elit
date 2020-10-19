@@ -23,6 +23,8 @@ const typeDefs = gql`
     location: String
     avatar: String
     linkedIn: String
+    gitHub:String
+    portfolio: String
   }
 
   type AuthPayload {
@@ -46,6 +48,8 @@ const typeDefs = gql`
 
   input UserInput {
     linkedIn: String
+    gitHub: String
+    portfolio: String
   }
 `;
 

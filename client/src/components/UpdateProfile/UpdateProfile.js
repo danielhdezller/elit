@@ -22,10 +22,16 @@ const CustomSelect = ({ label, ...props }) => {
 const UpdateProfileEventForm = () => {
   const [CreateUserData, { data }] = useMutation(CREATE_USERDATA);
   console.log('data:', data);
+
   const userId = useSelector((store)=> {
     return store.authenticated.userId
   })
-  console.log(userId)
+  
+  const name = useSelector((store) => {
+    return store.authenticated.userName
+  })
+  console.log('name',name)
+
   return (
     <div>
       <div>
@@ -35,6 +41,8 @@ const UpdateProfileEventForm = () => {
             // name: '', //from Redux
             // userName: '', // from Redux
             linkedIn: '', //needs to save
+            gitHub: '',
+            portfolio: '',
             
           }}
 
@@ -52,12 +60,42 @@ const UpdateProfileEventForm = () => {
             <Form autoComplete='off'>
               <Field
                 type='text'
-                placeholder='LinkedIn'
+                name='name'
+                value = {name}
+              />
+              <ErrorMessage
+                className='error'
+                name='name'
+                component='div'
+              />
+              <Field
+                type='text'
+                placeholder='LinkedIn link'
                 name='linkedIn'
               />
               <ErrorMessage
                 className='error'
                 name='linkedIn'
+                component='div'
+              />
+              <Field
+                type='text'
+                placeholder='GitHub link'
+                name='gitHub'
+              />
+              <ErrorMessage
+                className='error'
+                name='gitHub'
+                component='div'
+              />
+              <Field
+                type='text'
+                placeholder='Portfolio/Personal website link'
+                name='portfolio'
+              />
+              <ErrorMessage
+                className='error'
+                name='portfolio'
                 component='div'
               />
               <button type='submit' disabled={isSubmitting}>

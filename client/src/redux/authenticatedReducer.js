@@ -4,6 +4,8 @@ const initialState = {
   userName: '',
   display: false,
   linkedIn: '',
+  gitHub: '',
+  portfolio: ''
 };
 
 const authenticatedReducer = (state = initialState, action) => {

@@ -69,6 +69,14 @@ const User = sequelize.define('User', {
     type: Sequelize.STRING,
     allowNull: true,
   },
+  gitHub: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  portfolio: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  }
 });
 
 const Event = sequelize.define('Event', {

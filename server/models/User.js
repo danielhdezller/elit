@@ -32,6 +32,14 @@ module.exports = (elitDb, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    gitHub: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    portfolio: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   });
 
   User.associate = (db) => {
