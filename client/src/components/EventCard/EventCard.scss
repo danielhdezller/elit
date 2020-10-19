@@ -1,0 +1,41 @@
+.eventCard {
+  border-radius: 1rem;
+  border-color: #3333;
+  box-shadow: 0 0 10px 1px #3333;
+  padding: 0.5vw;
+  margin: 2vw;
+  text-align: center;
+}
+.eventHeader {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.eventTitle {
+}
+.eventDate {
+}
+.eventDetails {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.eventDescLink {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.eventDescription {
+}
+.eventLink {
+}
+
+.eventCharacteristics {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
