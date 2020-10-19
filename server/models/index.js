@@ -100,6 +100,10 @@ const Event = sequelize.define('Event', {
     type: Sequelize.INTEGER,
     allowNull: true,
   },
+  categories: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 });
 
 const db = {};
