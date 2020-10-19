@@ -1,25 +1,45 @@
 require('dotenv').config();
 const db = require('../models/index');
 const User = db.User;
+const Event = db.Event;
 const { requestGithubUser } = require('../authenticationMidleware');
 
 let currentUser;
 
 const resolvers = {
   Query: {
-    me: () => currentUser,
     githubLoginUrl: () =>
       `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&scope=user`,
     getUsers: async () => {
       try {
         user = await User.findAll();
-        return user
+        return user;
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    },
   },
   Mutation: {
+    async CreateEvent(parent, { input }) {
+      console.log('input:', input);
+      try {
+        await Event.create({
+          title: input.eventTitle,
+          description: input.eventDescription,
+          date: input.date,
+          link: input.eventLink,
+          location: input.location,
+          eventLeader: input.userName,
+          //USERID
+          participants: 0,
+          categories: input.categories,
+        });
+      } catch (err) {
+        console.error(err);
+      }
+      return { eventTitle: input.eventTitle };
+    },
+
     async authorizeWithGithub(parent, { code }) {
       console.log('User:', User.findOne);
       // 1. Obtain data from GitHub

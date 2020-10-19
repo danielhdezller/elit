@@ -1,16 +1,15 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-
   type Query {
     githubLoginUrl: String!
-    me: User
     userData: User
     getUsers: [User]
   }
 
   type Mutation {
     authorizeWithGithub(code: String!): AuthPayload!
+    CreateEvent(input: EventInput!): EventData!
   }
 
   type User {
@@ -26,6 +25,20 @@ const typeDefs = gql`
   type AuthPayload {
     token: String!
     user: User!
+  }
+
+  type EventData {
+    eventTitle: String
+  }
+
+  input EventInput {
+    eventTitle: String
+    date: String
+    eventDescription: String
+    eventLink: String
+    categories: String
+    location: String
+    userName: String
   }
 `;
 
