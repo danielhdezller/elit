@@ -1,15 +1,19 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_EVENTS } from '../../GraphQL/querys';
+import { GET_USER_EVENTS } from '../../GraphQL/querys';
 import EventCard from '../../components/EventCard/EventCard';
+import { useSelector } from 'react-redux';
 
-function CommunityEvents() {
-  const { data } = useQuery(GET_ALL_EVENTS);
+function UserEventList() {
+  const { userId } = useSelector((state) => state.authenticated);
+  const { data } = useQuery(GET_USER_EVENTS, {
+    variables: { userId },
+  });
 
   let events = [],
     showEvents;
-  if (data?.getEvents) {
-    events = data.getEvents;
+  if (data?.getEventByUser) {
+    events = data.getEventByUser;
     let eventSorted = [...events].sort((a, b) => +a.date - +b.date);
     showEvents = eventSorted.map((event) => (
       <div key={event.id_event} className='col-lg-3'>
@@ -24,6 +28,7 @@ function CommunityEvents() {
           userName={event.eventLeader}
           participants={event.participants}
         />
+        <div>hola</div>
       </div>
     ));
   }
@@ -31,4 +36,4 @@ function CommunityEvents() {
   return <div>{showEvents}</div>;
 }
 
-export default CommunityEvents;
+export default UserEventList;

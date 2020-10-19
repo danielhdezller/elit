@@ -19,7 +19,7 @@ export const GET_USER_DATA = gql`
 export const CREATE_EVENT = gql`
   mutation CreateEvent($input: EventInput!) {
     CreateEvent(input: $input) {
-      eventTitle
+      response
     }
   }
 `;

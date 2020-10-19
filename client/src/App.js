@@ -13,8 +13,7 @@ import { GET_ALL_USERS } from './GraphQL/querys';
 import Footer from './components/Footer/Footer';
 import CommunityEvents from './containers/CommunityEvents/CommunityEvents';
 import MyEvents from './containers/MyEvents/MyEvents';
-import Community from './components/Community/Community'
-
+import Community from './components/Community/Community';
 
 function App() {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
@@ -40,6 +39,7 @@ function App() {
           <Route
             exact
             path='/member/:name/events'
+            // render={() => <CommunityEvents events={} />}
             component={CommunityEvents}
           />
           <Route exact path='/member/:name/myevents' render={MyEvents} />
@@ -47,7 +47,11 @@ function App() {
             exact
             path='/member/:name/community'
             render={() => (
-              <Community loading={loading} error={error} users={data?.getUsers} />
+              <Community
+                loading={loading}
+                error={error}
+                users={data?.getUsers}
+              />
             )}
           />
         </Switch>
