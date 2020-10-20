@@ -18,9 +18,8 @@ const authenticatedReducer = (state = initialState, action) => {
         authenticated: action.payload.authenticated,
         userId: action.payload.userId,
         userName: action.payload.userName,
-        
         githubLogin: action.payload.githubLogin,
-        
+        email: action.payload.email,        
       };
       
     case "TOGGLE":

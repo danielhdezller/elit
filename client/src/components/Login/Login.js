@@ -48,6 +48,7 @@ const Login = () => {
       userId: response.authorizeWithGithub.user.id,
       userName: response.authorizeWithGithub.user.name,
       githubLogin: response.authorizeWithGithub.user.githubLogin,
+      email: response.authorizeWithGithub.user.email,
     };
     console.log('userLoged:', userLoged);
     dispatch({

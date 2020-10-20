@@ -21,13 +21,13 @@ const CustomSelect = ({ label, ...props }) => {
 
 const UpdateProfileEventForm = () => {
 
-  const [ fullName, setFullName ] = React.useState('')
+  // const [ fullName, setFullName ] = React.useState('')
   const [CreateUserData, { data }] = useMutation(CREATE_USERDATA);
 
   const userId = useSelector(store=> store.authenticated.userId)
   const name = useSelector(store =>  store.authenticated.userName)
   const githubLogin = useSelector( store => store.authenticated.githubLogin)
-  
+  const email = useSelector(store =>  store.authenticated.email)
 //intiliazied dispatch// for help we can take a look at Login.js=>bring dispatch here => 
 //create a new action => update=> essiantially same as UPDATE_AUTHENTICATION
 // and then we use MUTATION to save into the db
@@ -56,10 +56,11 @@ const UpdateProfileEventForm = () => {
           {({ isSubmitting }) => (
             <Form autoComplete='off'>
               <Field
+                disabled
                 type='text'
                 name='name'
-                value = {fullName}
-                onChange={(e)=> setFullName(e.target.value)}
+                value = {name}
+                // onChange={(e)=> setFullName(e.target.value)}
               />
               <ErrorMessage
                 className='error'
@@ -67,6 +68,7 @@ const UpdateProfileEventForm = () => {
                 component='div'
               />
               <Field
+                disabled
                 type='text'
                 name='githubLogin'
                 value = {githubLogin}
@@ -74,6 +76,18 @@ const UpdateProfileEventForm = () => {
               <ErrorMessage
                 className='error'
                 name='githubLogin'
+                component='div'
+              />
+               <Field
+                disabled
+                type='text'
+                name='name'
+                value = {email}
+                // onChange={(e)=> setFullName(e.target.value)}
+              />
+              <ErrorMessage
+                className='error'
+                name='name'
                 component='div'
               />
               <Field
