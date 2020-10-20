@@ -43,7 +43,11 @@ module.exports = (elitDb, DataTypes) => {
     bio: {
       type: DataTypes.STRING,
       allowNull: true,
-    }
+    },
+    userStacks: {
+      type: DataTypes .ARRAY(Sequelize.TEXT),
+      allowNull: true,
+    },
   });
 
   User.associate = (db) => {

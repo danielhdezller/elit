@@ -6,7 +6,8 @@ const initialState = {
   linkedIn: '',
   gitHub: '',
   portfolio: '',
-  githubLogin: ''
+  githubLogin: '',
+  userStacks: [],
 };
 
 const authenticatedReducer = (state = initialState, action) => {

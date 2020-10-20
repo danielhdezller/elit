@@ -22,7 +22,7 @@ const CustomSelect = ({ label, ...props }) => {
 const UpdateProfileEventForm = () => {
 
   // const [ fullName, setFullName ] = React.useState('')
-  const [CreateUserData, { data }] = useMutation(CREATE_USERDATA);
+  // const [CreateUserData, { data }] = useMutation(CREATE_USERDATA);
 
   const userId = useSelector(store=> store.authenticated.userId)
   const name = useSelector(store =>  store.authenticated.userName)
@@ -44,6 +44,7 @@ const UpdateProfileEventForm = () => {
             gitHub: '',
             portfolio: '',
             bio: '',
+            userStacks: [],
           }}
 
           onSubmit={(values, { setSubmitting }) => {
@@ -51,7 +52,7 @@ const UpdateProfileEventForm = () => {
               // alert(JSON.stringify(values));
               console.log('values', values);
               // console.log('values.eventLink', values.eventDescription);
-              CreateUserData({ variables: { input: values, id: userId } });
+              // CreateUserData({ variables: { input: values, id: userId } });
               setSubmitting(false);
             }, 400);
           }}
@@ -135,7 +136,17 @@ const UpdateProfileEventForm = () => {
                 name='bio'
                 component='div'
               />
-              
+
+              <CustomSelect label='userStacks' name='userStacks'>
+                <option value='JavaScript'>JavaScript</option>
+                <option value='Python'>Python</option>
+                <option value='Golang'>Golang</option>
+                <option value='Rust'>Rust</option>
+                <option value='Java'>Java</option>
+                <option value='C'>C</option>
+                <option value='C++'>C++</option>
+                <option value='C#'>C#</option>
+              </CustomSelect>              
               <button type='submit' disabled={isSubmitting}>
                 Submit
               </button>

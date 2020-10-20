@@ -40,23 +40,24 @@ const resolvers = {
       return { eventTitle: input.eventTitle };
     },
     
-    async CreateUserData(parent, { input, id }) {
-      console.log('linkedIn:', input);
-      console.log('gitHub:', input);
-      try {
-        const user = await User.findOne({where: { id }})
-        console.log('USER!!!', user)
-        user.linkedIn = input.linkedIn
-        user.gitHub = input.gitHub
-        user.portfolio = input.portfolio
-        user.bio = input.bio
-        await user.save()
-        return user;
-      } catch (err) {
-        console.error(err);
-      }
+    // async CreateUserData(parent, { input, id }) {
+    //   console.log('linkedIn:', input);
+    //   console.log('gitHub:', input);
+    //   try {
+    //     const user = await User.findOne({where: { id }})
+    //     console.log('USER!!!', user)
+    //     user.linkedIn = input.linkedIn
+    //     user.gitHub = input.gitHub
+    //     user.portfolio = input.portfolio
+    //     user.bio = input.bio
+    //     user.userStacks = input.userStacks
+    //     await user.save()
+    //     return user;
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
       
-    },
+    // },
 
     async authorizeWithGithub(parent, { code }) {
       console.log('User:', User.findOne);

@@ -11,22 +11,23 @@ const typeDefs = gql`
   type Mutation {
     authorizeWithGithub(code: String!): AuthPayload!
     CreateEvent(input: EventInput!): EventData!
-    CreateUserData(input: UserInput!, id: Int): User!
   }
 
   type User {
-    id: Int
-    email: String
-    name: String
-    githubLogin: String
-    githubToken: String
-    location: String
-    avatar: String
-    linkedIn: String
-    gitHub:String
-    portfolio: String
-    bio: String
-  }
+      id: Int
+      email: String
+      name: String
+      githubLogin: String
+      githubToken: String
+      location: String
+      avatar: String
+      linkedIn: String
+      gitHub:String
+      portfolio: String
+      bio: String
+    }
+
+
 
   type AuthPayload {
     token: String!
@@ -47,12 +48,6 @@ const typeDefs = gql`
     userName: String
   }
 
-  input UserInput {
-    linkedIn: String
-    gitHub: String
-    portfolio: String
-    bio: String
-  }
 `;
 
 
