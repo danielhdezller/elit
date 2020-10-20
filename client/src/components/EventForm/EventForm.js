@@ -32,8 +32,8 @@ const EventForm = () => {
   });
 
   return (
-    <div>
-      <div>
+    <div className='formContainer'>
+      <div className='formContainer'>
         <h3>Add a new event to de community</h3>
         <Formik
           initialValues={{
@@ -69,8 +69,9 @@ const EventForm = () => {
           }}
         >
           {({ isSubmitting }) => (
-            <Form autoComplete='off'>
+            <Form className='eventForm' autoComplete='off'>
               <Field
+                className='eventField'
                 type='eventTitle'
                 placeholder='Event title'
                 name='eventTitle'
@@ -81,32 +82,50 @@ const EventForm = () => {
                 component='div'
               />
               <Field type='datetime-local' name='date' />
-              <ErrorMessage name='date' component='div' />
+              <ErrorMessage className='error' name='date' component='div' />
               <Field
-                className='fildDescription'
+                className='eventField'
                 type='eventDescription'
                 placeholder='Event description'
                 name='eventDescription'
               />
-              <ErrorMessage name='eventDescription' component='div' />
+              <ErrorMessage
+                className='error'
+                name='eventDescription'
+                component='div'
+              />
               <Field
                 type='url'
                 placeholder='https://example.com'
                 pattern='https://.*'
                 name='eventLink'
               />
-              <ErrorMessage name='eventLink' component='div' />
-              <CustomSelect label='Event Category' name='categories'>
-                <option value='Event Category'>Event Category</option>
-                <option value='Teaching Session'>Teaching Session</option>
-                <option value='Tech Talk'>Tech Talk</option>
-                <option value='Collaboration'>Collaboration</option>
-                <option value='MeetUp'>MeetUp</option>
-              </CustomSelect>
+              <ErrorMessage
+                className='error'
+                name='eventLink'
+                component='div'
+              />
+              <div className='field'>
+                <CustomSelect
+                  className='eventField'
+                  label='Event Category'
+                  name='categories'
+                >
+                  <option value='Event Category'>Event Category</option>
+                  <option value='Teaching Session'>Teaching Session</option>
+                  <option value='Tech Talk'>Tech Talk</option>
+                  <option value='Collaboration'>Collaboration</option>
+                  <option value='MeetUp'>MeetUp</option>
+                </CustomSelect>
+              </div>
               <Field type='location' placeholder='Location' name='location' />
-              <ErrorMessage name='location' component='div' />
-              <button type='submit' disabled={isSubmitting}>
-                Submit
+              <ErrorMessage className='error' name='location' component='div' />
+              <button
+                className='formSubmit'
+                type='submit'
+                disabled={isSubmitting}
+              >
+                Create Event
               </button>
             </Form>
           )}
