@@ -29,6 +29,17 @@ const resolvers = {
         response: 'Event created',
       };
     },
+    getUserLogedIn: async (parent, { userId }) => {
+      try {
+        const user = await User.findOne({
+          where: { id: userId },
+        });
+        console.log('user:', user);
+        return user;
+      } catch (err) {
+        console.log(error);
+      }
+    },
     getEventByUser: async (parent, { userId }) => {
       try {
         const event = await Event.findAll({
@@ -42,7 +53,6 @@ const resolvers = {
   },
   Mutation: {
     async DeleteEvent(parent, { id_event }) {
-      console.log('id_event:', id_event);
       try {
         Event.destroy({
           where: { id_event: id_event },
@@ -75,25 +85,26 @@ const resolvers = {
         response: 'Event created',
       };
     },
-    
-    // async CreateUserData(parent, { input, id }) {
-    //   console.log('linkedIn:', input);
-    //   console.log('gitHub:', input);
-    //   try {
-    //     const user = await User.findOne({where: { id }})
-    //     console.log('USER!!!', user)
-    //     user.linkedIn = input.linkedIn
-    //     user.gitHub = input.gitHub
-    //     user.portfolio = input.portfolio
-    //     user.bio = input.bio
-    //     user.userStacks = input.userStacks
-    //     await user.save()
-    //     return user;
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-      
-    // },
+
+    async UpdateUserData(parent, { input }) {
+      try {
+        const userId = input.userId;
+        const user = await User.findOne({ where: { id: userId } });
+        user.name = input.name;
+        user.email = input.email;
+        user.linkedIn = input.linkedIn;
+        user.gitHub = input.gitHub;
+        user.portfolio = input.portfolio;
+        user.bio = input.bio;
+        user.userStacks = input.userStacks;
+        await user.save();
+      } catch (err) {
+        console.error(err);
+      }
+      return {
+        response: 'User data updated',
+      };
+    },
 
     async authorizeWithGithub(parent, { code }) {
       console.log('hola user');

@@ -51,3 +51,21 @@ export const GET_USER_EVENTS = gql`
     }
   }
 `;
+
+export const GET_USER_LOGED_IN = gql`
+  query getUserLogedIn($userId: Int!) {
+    getUserLogedIn(userId: $userId) {
+      id
+      email
+      name
+      githubLogin
+      githubToken
+      location
+      avatar
+      linkedIn
+      gitHub
+      portfolio
+      bio
+    }
+  }
+`;
