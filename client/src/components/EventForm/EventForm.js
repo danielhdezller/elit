@@ -63,7 +63,6 @@ const EventForm = () => {
             setTimeout(() => {
               console.log('values:', values);
               createEvent({ variables: { input: values } });
-              console.log('hola');
               setSubmitting(false);
             }, 400);
           }}

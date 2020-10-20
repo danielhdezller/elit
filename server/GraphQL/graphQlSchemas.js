@@ -5,31 +5,46 @@ const typeDefs = gql`
     githubLoginUrl: String!
     userData: User
     getUsers: [User]
-
     getEvents: [EventData]
     getEventByUser(userId: Int!): [EventData]
+    getUserLogedIn(userId: Int!): User
   }
 
   type Mutation {
     authorizeWithGithub(code: String!): AuthPayload!
     CreateEvent(input: EventInput!): CreateEventResponse!
     DeleteEvent(id_event: Int!): DeleteEventResponse!
+    UpdateUserData(input: UpdatedData!): UpdateUserResponse!
+  }
+
+  input UpdatedData {
+    bio: String
+    name: String
+    email: String
+    gitHub: String
+    linkedIn: String
+    portfolio: String
+    userId: Int!
+    userStacks: [String]
   }
 
   type User {
+    id: Int
+    email: String
+    name: String
+    githubLogin: String
+    githubToken: String
+    location: String
+    avatar: String
+    linkedIn: String
+    gitHub: String
+    portfolio: String
+    bio: String
+  }
 
-      id: Int
-      email: String
-      name: String
-      githubLogin: String
-      githubToken: String
-      location: String
-      avatar: String
-      linkedIn: String
-      gitHub:String
-      portfolio: String
-      bio: String
-    }
+  type UpdateUserResponse {
+    response: String
+  }
 
   type CreateEventResponse {
     response: String
@@ -67,8 +82,6 @@ const typeDefs = gql`
   type DeleteEventResponse {
     response: String
   }
-
 `;
-
 
 module.exports = typeDefs;
