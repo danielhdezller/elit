@@ -43,6 +43,7 @@ const UpdateProfileEventForm = () => {
             linkedIn: '', //needs to save
             gitHub: '',
             portfolio: '',
+            bio: '',
           }}
 
           onSubmit={(values, { setSubmitting }) => {
@@ -122,6 +123,19 @@ const UpdateProfileEventForm = () => {
                 name='portfolio'
                 component='div'
               />
+              
+              <Field
+                as='textarea'
+                // type='text'
+                placeholder='Bio'
+                name='bio'
+              />
+              <ErrorMessage
+                className='error'
+                name='bio'
+                component='div'
+              />
+              
               <button type='submit' disabled={isSubmitting}>
                 Submit
               </button>

@@ -49,6 +49,7 @@ const resolvers = {
         user.linkedIn = input.linkedIn
         user.gitHub = input.gitHub
         user.portfolio = input.portfolio
+        user.bio = input.bio
         await user.save()
         return user;
       } catch (err) {

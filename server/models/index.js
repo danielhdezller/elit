@@ -76,6 +76,10 @@ const User = sequelize.define('User', {
   portfolio: {
     type: Sequelize.STRING,
     allowNull: true,
+  },
+  bio: {
+    type: Sequelize.STRING,
+    allowNull: true,
   }
 });
 

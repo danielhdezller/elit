@@ -25,6 +25,7 @@ const typeDefs = gql`
     linkedIn: String
     gitHub:String
     portfolio: String
+    bio: String
   }
 
   type AuthPayload {
@@ -50,6 +51,7 @@ const typeDefs = gql`
     linkedIn: String
     gitHub: String
     portfolio: String
+    bio: String
   }
 `;
 

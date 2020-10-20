@@ -39,6 +39,10 @@ module.exports = (elitDb, DataTypes) => {
     portfolio: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: true,
     }
   });
 
