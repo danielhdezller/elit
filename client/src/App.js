@@ -13,6 +13,8 @@ import { GET_ALL_USERS } from './GraphQL/querys';
 import Footer from './components/Footer/Footer';
 import CommunityEvents from './containers/CommunityEvents/CommunityEvents';
 import MyEvents from './containers/MyEvents/MyEvents';
+
+import UpdateProfileEvents from './containers/UpdateProfileEvents/UpdateProfileEvents';
 import Community from './components/Community/Community';
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
             component={CommunityEvents}
           />
           <Route exact path='/member/:name/myevents' render={MyEvents} />
+          <Route exact path='/member/:name/updateprofile' render={UpdateProfileEvents} />
           <Route
             exact
             path='/member/:name/community'

@@ -5,6 +5,7 @@ const typeDefs = gql`
     githubLoginUrl: String!
     userData: User
     getUsers: [User]
+
     getEvents: [EventData]
     getEventByUser(userId: Int!): [EventData]
   }
@@ -16,17 +17,24 @@ const typeDefs = gql`
   }
 
   type User {
-    id: Int
-    email: String
-    name: String
-    githubLogin: String
-    githubToken: String
-    location: String
-    avatar: String
-  }
+
+      id: Int
+      email: String
+      name: String
+      githubLogin: String
+      githubToken: String
+      location: String
+      avatar: String
+      linkedIn: String
+      gitHub:String
+      portfolio: String
+      bio: String
+    }
+
   type CreateEventResponse {
     response: String
   }
+
   type AuthPayload {
     token: String!
     user: User!
@@ -59,6 +67,8 @@ const typeDefs = gql`
   type DeleteEventResponse {
     response: String
   }
+
 `;
+
 
 module.exports = typeDefs;

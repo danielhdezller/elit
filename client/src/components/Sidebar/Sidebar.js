@@ -35,8 +35,10 @@ const Sidebar = (props) => {
       onClick: () => linkClick(`/member/${githubLogin}/myevents`),
     },
     {
-      text: 'EDIT PROFILE',
-      onClick: () => linkClick(`/member/${githubLogin}/editprofile`),
+
+      text: "UPDATE PROFILE",
+      onClick: () => linkClick(`/member/${username}/updateprofile`)
+
     },
     {
       text: 'COMMUNITY',
