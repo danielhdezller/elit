@@ -29,7 +29,6 @@ const CustomSelectStack = ({ setStacksSelections }) => {
 
 function UpdateProfileEventForm() {
   const [stacksSelections, setStacksSelections] = useState([]);
-  console.log('stacksSelections:', stacksSelections);
   const userId = useSelector((store) => store.authenticated.userId);
   const avatar = useSelector((store) => store.authenticated.avatar);
   const [updateUserData] = useMutation(UPDATE_USERDATA, {
@@ -61,7 +60,6 @@ function UpdateProfileEventForm() {
             setTimeout(() => {
               const results = { ...values };
               results.userStacks = stacksSelections;
-              console.log('results:', results);
               updateUserData({ variables: { input: results } });
               setSubmitting(false);
             }, 400);
