@@ -1,3 +1,50 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+}
+.eventForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+  border-radius: 1rem;
+  border-color: #3333;
+  box-shadow: 0 0 10px 1px #3333;
+  padding: 0.5vw;
+  margin: 2vw;
+  text-align: center;
+}
+.field {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  outline: 0px;
+}
+.eventField {
+  outline: 0px;
+  width: 80vw;
+  height: 50px;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  font-weight: 200;
+  box-shadow: 0 0 10px 1px #3333;
+}
+
+.formSubmit {
+  margin: 20px;
+  height: 50px;
+  background: #ff7b10;
+  color: white;
+  font-weight: 700;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px 1px #3333;
+}
+
 .fildDescription {
   border-radius: 1rem;
   border-color: #3333;
