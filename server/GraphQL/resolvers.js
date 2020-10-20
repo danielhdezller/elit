@@ -42,6 +42,7 @@ const resolvers = {
   },
   Mutation: {
     async DeleteEvent(parent, { id_event }) {
+      console.log('id_event:', id_event);
       try {
         Event.destroy({
           where: { id_event: id_event },

@@ -1,15 +1,23 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_USER_EVENTS } from '../../GraphQL/querys';
 import EventCard from '../../components/EventCard/EventCard';
 import { useSelector } from 'react-redux';
+import { DELETE_EVENT } from '../../GraphQL/mutations';
 
 function UserEventList() {
   const { userId } = useSelector((state) => state.authenticated);
+  const [DeleteEvent] = useMutation(DELETE_EVENT, {
+    refetchQueries: [
+      {
+        query: GET_USER_EVENTS,
+        variables: { userId },
+      },
+    ],
+  });
   const { data } = useQuery(GET_USER_EVENTS, {
     variables: { userId },
   });
-
   let events = [],
     showEvents;
   if (data?.getEventByUser) {
@@ -28,7 +36,13 @@ function UserEventList() {
           userName={event.eventLeader}
           participants={event.participants}
         />
-        <div>hola</div>
+        <div
+          onClick={() =>
+            DeleteEvent({ variables: { id_event: event.id_event } })
+          }
+        >
+          Delete Event
+        </div>
       </div>
     ));
   }
