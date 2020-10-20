@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
 import './EventForm.scss';
 import { CREATE_EVENT } from '../../GraphQL/mutations';
+import { GET_USER_EVENTS } from '../../GraphQL/querys';
 import { useMutation } from '@apollo/client';
 
 const CustomSelect = ({ label, ...props }) => {
@@ -21,8 +22,14 @@ const CustomSelect = ({ label, ...props }) => {
 
 const EventForm = () => {
   const { userId, userName } = useSelector((state) => state.authenticated);
-  const [createEvent, { data }] = useMutation(CREATE_EVENT);
-  console.log('data:', data);
+  const [createEvent] = useMutation(CREATE_EVENT, {
+    refetchQueries: [
+      {
+        query: GET_USER_EVENTS,
+        variables: { userId },
+      },
+    ],
+  });
 
   return (
     <div>
