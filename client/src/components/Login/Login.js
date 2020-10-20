@@ -26,14 +26,7 @@ const Login = () => {
     window.location.href = data.githubLoginUrl;
   }
   const userCode = history.location.search.split('=').slice(1).join();
-  const [mutateUser, { data: response }] = useMutation(GET_USER_DATA, {
-    // onCompleted: ({ mutateUser }) => {
-    // console.log(
-    //   'responselogin',
-    //   response.authorizeWithGithub.user.githubLogin
-    // );
-    // },
-  });
+  const [mutateUser, { data: response }] = useMutation(GET_USER_DATA);
   if (userCode && !code) {
     mutateUser({
       variables: { code: userCode },
@@ -48,6 +41,10 @@ const Login = () => {
       userId: response.authorizeWithGithub.user.id,
       userName: response.authorizeWithGithub.user.name,
       githubLogin: response.authorizeWithGithub.user.githubLogin,
+
+      email: response.authorizeWithGithub.user.email,
+      avatar: response.authorizeWithGithub.user.avatar,
+
     };
     console.log('userLoged:', userLoged);
     dispatch({

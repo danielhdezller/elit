@@ -23,3 +23,19 @@ export const CREATE_EVENT = gql`
     }
   }
 `;
+
+export const DELETE_EVENT = gql`
+  mutation DeleteEvent($id_event: Int!) {
+    DeleteEvent(id_event: $id_event) {
+      response
+    }
+  }
+`;
+
+export const UPDATE_USERDATA = gql`
+  mutation UpdateUserData($input: UpdatedData!) {
+    UpdateUserData(input: $input) {
+      response
+    }
+  }
+`;
