@@ -50,7 +50,7 @@ function UpdateProfileEventForm() {
   return (
     <div>
       <div>
-        <img src={avatar} atl='img' />
+        <img src={avatar} alt='User' />
         <h3>Update Profile</h3>
         <Formik
           initialValues={{
