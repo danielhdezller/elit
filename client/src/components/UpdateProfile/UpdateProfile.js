@@ -28,6 +28,7 @@ const UpdateProfileEventForm = () => {
   const name = useSelector(store =>  store.authenticated.userName)
   const githubLogin = useSelector( store => store.authenticated.githubLogin)
   const email = useSelector(store =>  store.authenticated.email)
+  const avatar = useSelector(store =>  store.authenticated.avatar)
 //intiliazied dispatch// for help we can take a look at Login.js=>bring dispatch here => 
 //create a new action => update=> essiantially same as UPDATE_AUTHENTICATION
 // and then we use MUTATION to save into the db
@@ -35,6 +36,7 @@ const UpdateProfileEventForm = () => {
   return (
     <div>
       <div>
+        <img src = {avatar} atl='img'/>
         <h3>Update Profile</h3>
         <Formik
           initialValues={{                     
