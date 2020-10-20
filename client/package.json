@@ -12,6 +12,8 @@
     "fontsource-roboto": "^3.0.3",
     "formik": "^2.2.0",
     "graphql": "^15.3.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

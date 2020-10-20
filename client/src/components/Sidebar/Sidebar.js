@@ -1,17 +1,16 @@
-import React from 'react'
+import React from 'react';
 import {
   Drawer,
   List,
   ListItem,
   // ListItemIcon,
-  ListItemText
+  ListItemText,
 } from '@material-ui/core/';
 import { useSelector, useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-
+import { withRouter } from 'react-router-dom';
 
 const Sidebar = (props) => {
-  const username = useSelector((state) => state.authenticated.userName);
+  const githubLogin = useSelector((state) => state.authenticated.githubLogin);
   const authenticated = useSelector((state) => state.authenticated);
   const { history } = props;
   const dispatch = useDispatch();
@@ -19,41 +18,40 @@ const Sidebar = (props) => {
 
   const linkClick = (path) => {
     handleClose();
-    history.push(path)
+    history.push(path);
   };
 
   const itemsList = [
     {
-      text: "MY PROFILE",
-      onClick: () => linkClick(`/member/${username}`)
+      text: 'MY PROFILE',
+      onClick: () => linkClick(`/member/${githubLogin}`),
     },
     {
-      text: "ALL EVENTS",
-      onClick: () => linkClick(`/member/${username}/events`)
+      text: 'ALL EVENTS',
+      onClick: () => linkClick(`/member/${githubLogin}/events`),
     },
     {
-      text: "MY EVENTS",
-      onClick: () => linkClick(`/member/${username}/myevents`)
+      text: 'MY EVENTS',
+      onClick: () => linkClick(`/member/${githubLogin}/myevents`),
     },
     {
+
       text: "UPDATE PROFILE",
       onClick: () => linkClick(`/member/${username}/updateprofile`)
+
     },
     {
-      text: "COMMUNITY",
-      onClick: () => linkClick(`/member/${username}/community`)
-    }
+      text: 'COMMUNITY',
+      onClick: () => linkClick(`/member/${githubLogin}/community`),
+    },
   ];
 
   const handleClose = () => {
-    dispatch({type:"TOGGLE", data: false})
+    dispatch({ type: 'TOGGLE', data: false });
   };
 
   return (
-    <Drawer   
-      open={authenticated.display}
-      onClose={handleClose}      
-    >
+    <Drawer open={authenticated.display} onClose={handleClose}>
       <List>
         {itemsList.map((item, index) => {
           const { text, onClick } = item;
@@ -68,12 +66,7 @@ const Sidebar = (props) => {
     </Drawer>
   );
 };
-export default withRouter(Sidebar)
-
-
-
-
-
+export default withRouter(Sidebar);
 
 // import React from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -81,14 +74,14 @@ export default withRouter(Sidebar)
 
 // const Sidebar = () => {
 //   const username = useSelector((state) => state.authenticated.userName);
-  
+
 //   return (
-//     <div className='sidebar position-absolute' 
+//     <div className='sidebar position-absolute'
 //     style={{
 //       backgroundColor: 'rgb(215, 213, 202)',
 //       bottom: 0,
 //       top: 53,
-      
+
 //       }}>
 //       <h4>{username}</h4>
 //       <Router>
@@ -112,8 +105,5 @@ export default withRouter(Sidebar)
 //     </div>
 //   );
 // };
-
-
-
 
 // export default Sidebar;

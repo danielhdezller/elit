@@ -1,8 +1,10 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
+import { useSelector } from 'react-redux';
 import './EventForm.scss';
 import { CREATE_EVENT } from '../../GraphQL/mutations';
+import { GET_USER_EVENTS } from '../../GraphQL/querys';
 import { useMutation } from '@apollo/client';
 
 const CustomSelect = ({ label, ...props }) => {
@@ -19,8 +21,15 @@ const CustomSelect = ({ label, ...props }) => {
 };
 
 const EventForm = () => {
-  const [createEvent, { data }] = useMutation(CREATE_EVENT);
-  console.log('data:', data);
+  const { userId, userName } = useSelector((state) => state.authenticated);
+  const [createEvent] = useMutation(CREATE_EVENT, {
+    refetchQueries: [
+      {
+        query: GET_USER_EVENTS,
+        variables: { userId },
+      },
+    ],
+  });
 
   return (
     <div>
@@ -34,7 +43,8 @@ const EventForm = () => {
             eventLink: '',
             categories: '',
             location: '',
-            userName: '', //its not finished here I will put the name of the user loged it dosent apeear in the form is undher the hood
+            userName: userName,
+            userId: userId,
           }}
           validationSchema={Yup.object({
             eventTitle: Yup.string().required('Required'),
@@ -51,10 +61,9 @@ const EventForm = () => {
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              // alert(JSON.stringify(values));
-              console.log('values', values);
-              console.log('values.eventLink', values.eventDescription);
+              console.log('values:', values);
               createEvent({ variables: { input: values } });
+              console.log('hola');
               setSubmitting(false);
             }, 400);
           }}

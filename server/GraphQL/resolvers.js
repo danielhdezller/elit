@@ -18,10 +18,44 @@ const resolvers = {
         console.log(error);
       }
     },
+    getEvents: async () => {
+      try {
+        const event = await Event.findAll();
+        return event;
+      } catch (error) {
+        console.log(error);
+      }
+      return {
+        response: 'Event created',
+      };
+    },
+    getEventByUser: async (parent, { userId }) => {
+      try {
+        const event = await Event.findAll({
+          where: { userId: userId },
+        });
+        return event;
+      } catch (err) {
+        console.log(error);
+      }
+    },
   },
   Mutation: {
+    async DeleteEvent(parent, { id_event }) {
+      console.log('id_event:', id_event);
+      try {
+        Event.destroy({
+          where: { id_event: id_event },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+      return {
+        response: 'Event deleted',
+      };
+    },
+
     async CreateEvent(parent, { input }) {
-      console.log('input:', input);
       try {
         await Event.create({
           title: input.eventTitle,
@@ -30,14 +64,16 @@ const resolvers = {
           link: input.eventLink,
           location: input.location,
           eventLeader: input.userName,
-          //USERID
+          userId: input.userId,
           participants: 0,
           categories: input.categories,
         });
       } catch (err) {
         console.error(err);
       }
-      return { eventTitle: input.eventTitle };
+      return {
+        response: 'Event created',
+      };
     },
     
     // async CreateUserData(parent, { input, id }) {
@@ -60,7 +96,7 @@ const resolvers = {
     // },
 
     async authorizeWithGithub(parent, { code }) {
-      console.log('User:', User.findOne);
+      console.log('hola user');
       // 1. Obtain data from GitHub
       let githubUser = await requestGithubUser({
         client_id: `${process.env.CLIENT_ID}`,
@@ -77,14 +113,12 @@ const resolvers = {
         location: githubUser.location,
         avatar: githubUser.avatar_url,
       };
-      console.log('currentUser:', currentUser);
       // 3. Return user data and their token
       let user;
       try {
         user = await User.findOne({
           where: { id: `${currentUser.id}` },
         });
-
         if (!user) {
           const {
             id,
@@ -108,9 +142,6 @@ const resolvers = {
       } catch (err) {
         console.error(err);
       }
-      console.log('hello:');
-
-      console.log('user:', user);
       return { user: currentUser, token: githubUser.access_token };
     },
   },

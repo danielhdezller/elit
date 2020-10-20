@@ -121,6 +121,10 @@ const Event = sequelize.define('Event', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  userId: {
+    type: Sequelize.INTEGER,
+    primaryKey: false,
+  },
 });
 
 const db = {};
