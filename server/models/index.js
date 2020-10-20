@@ -80,7 +80,7 @@ const User = sequelize.define('User', {
   bio: {
     type: Sequelize.STRING,
     allowNull: true,
-  }
+  },
 });
 
 const Event = sequelize.define('Event', {
