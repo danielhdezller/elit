@@ -37,8 +37,8 @@ export const GET_ALL_EVENTS = gql`
 `;
 
 export const GET_USER_EVENTS = gql`
-  query getEventByUser($userId: Int!) {
-    getEventByUser(userId: $userId) {
+  query getUser($userId: Int!) {
+    getUser(userId: $userId) {
       id_event
       title
       date
@@ -55,6 +55,25 @@ export const GET_USER_EVENTS = gql`
 export const GET_USER_LOGED_IN = gql`
   query getUserLogedIn($userId: Int!) {
     getUserLogedIn(userId: $userId) {
+      id
+      email
+      name
+      githubLogin
+      githubToken
+      location
+      avatar
+      linkedIn
+      gitHub
+      portfolio
+      bio
+      userStacks
+    }
+  }
+`;
+
+export const GET_USER = gql`
+  query getUser($githubLogin: String!) {
+    getUser(githubLogin: $githubLogin) {
       id
       email
       name

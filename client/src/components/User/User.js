@@ -5,7 +5,7 @@ const User = ({ username, firstname, avatar }) => {
   return (
     <div>
       <div className='card'>
-        <Link to={`/members/${username}`}>
+        <Link to={`/member/${username}`}>
           <img src={avatar} className='card-img-top' alt='user img' />
           <div className='card-body h-100 border-0 bg-dark'>
             <h5

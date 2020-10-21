@@ -2,11 +2,11 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { useSelector } from 'react-redux';
-import { GET_USER_LOGED_IN } from '../../GraphQL/querys';
+import { GET_USER } from '../../GraphQL/querys';
 import { useQuery } from '@apollo/client';
 import UserStacks from '../../components/UserStacks/UserStacks';
 import UserMedia from '../../components/UserMedia/UserMedia';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,13 +25,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UserProfile = ({ match }) => {
-  const userId = useSelector((store) => store.authenticated.userId);
-  const { data } = useQuery(GET_USER_LOGED_IN, {
-    variables: { userId },
+  const history = useHistory();
+  const githubLogin = history.location.pathname.split('/').slice(2).join();
+  console.log('githubLogin:', githubLogin);
+  if (githubLogin) {
+  }
+  const { data } = useQuery(GET_USER, {
+    variables: { githubLogin },
   });
+  console.log('dataaaaa:', data);
   let userData;
-  if (data?.getUserLogedIn) {
-    userData = data.getUserLogedIn;
+  if (data?.getUser) {
+    userData = data.getUser;
     console.log('userData:', userData);
   }
   const classes = useStyles();
