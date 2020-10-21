@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     color: '#FFFFFF',
   },
   large: {
-    width: theme.spacing(25),
-    height: theme.spacing(25),
+    width: theme.spacing(15),
+    height: theme.spacing(15),
   },
 }));
 
@@ -44,27 +44,27 @@ const UserProfile = ({ match }) => {
             className={`${classes.large} shadow-lg`}
           />
         </div>
-        <div className='col-lg-6 text-center'>
-          <Typography variant='h3' component='h2'>
+        <div className='col-lg-6 text-center text-light '>
+          <Typography variant='h4' component='h2' className='mt-2 mb-3'>
             {userData?.name}
           </Typography>
-          <Chip size='small' color='primary' label='JavaScript' />
-          <Chip size='small' color='primary' label='Golang' />
-          <Chip size='small' color='primary' label='Python' />
+          <Chip size='small' color='secondary' label='JavaScript' />
+          <Chip size='small' color='secondary' label='Golang' />
+          <Chip size='small' color='secondary' label='Python' />
         </div>
       </div>
       <div
-        className='row d-flex justify-content-center text-center p-5 rounded-lg'
-        //  style={{ backgroundColor: '#3f51b524' }}
+        className='row d-flex justify-content-center text-center  rounded-lg'
+      //  style={{ backgroundColor: '#3f51b524' }}
       >
-        <div className='col-lg-6'>
-          <Typography variant='h5' component='h2'>
+        <div className='col-lg-6 col-10 text-light'>
+          <Typography className='mb-2 p-1' style={{ borderBottom:'solid 1px #f64857', fontWeight: '900' }} variant='h6' color='secondary' component='h2'>
             ABOUT
           </Typography>
-          <Typography variant='h5' component='h2'>
+          <h5 className='font-weight-light'>
             when an unknown printer took a galley of type and scrambled it to
             make a type specimen book. It has survived not only five centuries,
-          </Typography>
+          </h5>
         </div>
       </div>
     </>

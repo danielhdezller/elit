@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import Filtering from '../Filtering/Filtering'
-
 import User from '../User/User'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -20,7 +18,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 2
   }
 };
 
@@ -33,21 +31,21 @@ const Home = ({ users }) => {
 
   return (
     <>
-      {/* <Filtering setFilter={setFilter} /> */}
-
-      <div className="card text-center mt-5">
-        <div className="card-body">
-          <h5 className="card-title display-4">
-            connect.collaborate.create()
-            </h5>
+      <section className='d-flex justify-content-center align-items-center flex-column m-5 '>
+        <h1 className='text-light'>CONNECT</h1>
+        <div>
+          <span className='h2' role='img' aria-label='programming'>👩‍💻</span>
+          <span className='h4 mx-3' role='img' aria-label='programming'>🔗</span>
+          <span className='h2' role='img' aria-label='programming'>👨‍💻</span>
         </div>
-      </div>
-      <div>
+      </section>
 
+      <div>
         <Carousel
           ssr={false}
           responsive={responsive}
           infinite={true}
+
         >
           {(filter || [])?.map((user) => (
 
