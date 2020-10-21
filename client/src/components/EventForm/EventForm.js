@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
 import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
-import './EventForm.scss';
+// import './EventForm.scss';
 import { CREATE_EVENT } from '../../GraphQL/mutations';
 import { GET_USER_EVENTS } from '../../GraphQL/querys';
 import { useMutation } from '@apollo/client';
@@ -34,7 +34,9 @@ const EventForm = () => {
   return (
     <div className='formContainer'>
       <div className='formContainer'>
-        <h3>Add a new event to de community</h3>
+        <h3 className='text-light text-center mt-5 mb-2'>
+          Add a new event
+        </h3>
         <Formik
           initialValues={{
             eventTitle: '',
@@ -68,9 +70,12 @@ const EventForm = () => {
           }}
         >
           {({ isSubmitting }) => (
-            <Form className='eventForm' autoComplete='off'>
+            <Form
+              className='eventForm form-group'
+              autoComplete='off'
+            >
               <Field
-                className='eventField'
+                className='eventField form-control my-2'
                 type='eventTitle'
                 placeholder='Event title'
                 name='eventTitle'
@@ -80,10 +85,14 @@ const EventForm = () => {
                 name='eventTitle'
                 component='div'
               />
-              <Field type='datetime-local' name='date' />
+              <Field
+                className='form-control my-2'
+                type='datetime-local'
+                name='date'
+              />
               <ErrorMessage className='error' name='date' component='div' />
               <Field
-                className='eventField'
+                className='eventField form-control my-2'
                 type='eventDescription'
                 placeholder='Event description'
                 name='eventDescription'
@@ -94,6 +103,7 @@ const EventForm = () => {
                 component='div'
               />
               <Field
+                className='form-control my-2'
                 type='url'
                 placeholder='https://example.com'
                 pattern='https://.*'
@@ -117,10 +127,10 @@ const EventForm = () => {
                   <option value='MeetUp'>MeetUp</option>
                 </CustomSelect>
               </div>
-              <Field type='location' placeholder='Location' name='location' />
+              <Field className='form-control my-2' type='location' placeholder='Location' name='location' />
               <ErrorMessage className='error' name='location' component='div' />
               <button
-                className='formSubmit'
+                className='btn btn-success formSubmit'
                 type='submit'
                 disabled={isSubmitting}
               >

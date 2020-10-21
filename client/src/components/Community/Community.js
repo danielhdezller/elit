@@ -10,7 +10,9 @@ const Community = ({ users }) => {
     users?.filter(user => input ? user.name.includes(input) : user)
       .map(user =>
         (
-          <motion.div whileHover={{ opacity: 1 }} key={user.id} className='col-6 col-lg-3'>
+          <motion.div whileHover={{ opacity: 1 }} key={user.id}
+            className='col-6 col-lg-3 my-3'
+          >
             <User
               key={user.id}
               username={user.githubLogin}
