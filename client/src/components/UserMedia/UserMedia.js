@@ -46,11 +46,13 @@ function UserMedia() {
   return (
     <div className='d-flex justify-content-center my-1 '>
       {linkedIn ? (
-        <span className='mr-2'><showLinkedInComponent.showLinkedIn linkedIn={linkedIn} /></span>
+        <span className='d-flex align-items-center mr-3'><i className="fab fa-linkedin mr-1 primary"></i><showLinkedInComponent.showLinkedIn linkedIn={linkedIn} /></span>
       ) : null}
-      {github ? <showGithubComponent.showGithub github={github} /> : null}
+      {github ? (
+        <span className='d-flex align-items-center mr-3'><i className="fab fa-github mr-1 primary"></i><showGithubComponent.showGithub github={github} /></span>
+      ) : null}
       {portfolio ? (
-        <showPortfolioComponent.showPortfolio portfolio={portfolio} />
+        <span className='d-flex align-items-center'><i class="fas fa-link mr-1 primary"></i><showPortfolioComponent.showPortfolio portfolio={portfolio} /></span>
       ) : null}
     </div>
   );

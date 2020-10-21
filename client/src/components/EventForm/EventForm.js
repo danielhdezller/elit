@@ -33,7 +33,7 @@ const EventForm = () => {
 
   return (
     <div className='formContainer'>
-      <div className='formContainer'>
+      <div className='formContainer '>
         <h3 className='text-light text-center mt-5 mb-2'>
           Add a new event
         </h3>
@@ -93,7 +93,8 @@ const EventForm = () => {
               <ErrorMessage className='error' name='date' component='div' />
               <Field
                 className='eventField form-control my-2'
-                type='eventDescription'
+                // type='eventDescription'
+                as='textarea'
                 placeholder='Event description'
                 name='eventDescription'
               />
@@ -130,7 +131,7 @@ const EventForm = () => {
               <Field className='form-control my-2' type='location' placeholder='Location' name='location' />
               <ErrorMessage className='error' name='location' component='div' />
               <button
-                className='btn btn-success formSubmit'
+                className='btn btn-success formSubmit text-center w-100'
                 type='submit'
                 disabled={isSubmitting}
               >

@@ -35,7 +35,7 @@ const Community = ({ users }) => {
             placeholder="Type here..."
           />
           <div className="input-group-append">
-            <span className="input-group-text bg-danger text-light">Search users</span>
+            <span style={{backgroundColor:'#25A2B8'}} className="input-group-text text-light">Search users</span>
           </div>
         </div>
       </div>

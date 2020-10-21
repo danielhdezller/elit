@@ -4,7 +4,7 @@ import UserEventList from '../../components/UserEventList/UserEventList';
 import './MyEvents.scss';
 function MyEvents() {
   return (
-    <div className='myEvents'>
+    <div className='myEvents m-auto'>
       <EventForm />
       <UserEventList />
     </div>
