@@ -41,7 +41,6 @@ function App() {
           <Route
             exact
             path='/member/:name/events'
-            // render={() => <CommunityEvents events={} />}
             component={CommunityEvents}
           />
           <Route exact path='/member/:name/myevents' render={MyEvents} />
