@@ -66,6 +66,7 @@ export const GET_USER_LOGED_IN = gql`
       gitHub
       portfolio
       bio
+      userStacks
     }
   }
 `;

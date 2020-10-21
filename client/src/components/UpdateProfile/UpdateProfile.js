@@ -60,6 +60,7 @@ function UpdateProfileEventForm() {
             setTimeout(() => {
               const results = { ...values };
               results.userStacks = stacksSelections;
+              console.log('results:', results);
               updateUserData({ variables: { input: results } });
               setSubmitting(false);
             }, 400);
