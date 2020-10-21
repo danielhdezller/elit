@@ -32,12 +32,16 @@ const Home = ({ users }) => {
   return (
     <>
       <section className='d-flex justify-content-center align-items-center flex-column m-5 '>
-        <h1 className='text-light'>CONNECT</h1>
-        <div>
-          <span className='h2' role='img' aria-label='programming'>👩‍💻</span>
-          <span className='h4 mx-3' role='img' aria-label='programming'>🔗</span>
-          <span className='h2' role='img' aria-label='programming'>👨‍💻</span>
-        </div>
+        <small className='font-weight-bold text-light text-center'>Join our community</small>
+        <h3
+          style={{ lineHeight: '51px' }}
+          className='text-danger text-center display-4'>
+          connect <br />
+            .collaborate()
+            </h3>
+        <h4 className='text-light text-center '>
+          Our mission is to connect developers across the globe.
+          </h4>
       </section>
 
       <div>
@@ -60,6 +64,21 @@ const Home = ({ users }) => {
         </Carousel>
 
       </div>
+      <div className="alert alert-danger m-5 text-center" role="alert">
+        <h4
+          style={{ fontFamily: 'Rubik Mono One, sans-serif' }}
+        >
+          ELIT
+          </h4>
+        <p>
+          Was created to provide a platform for developers to connect.
+          Here you can find people to collaborate on your project or join
+          others to help them.
+           {/* to develop something amazing. Just want to set
+          up a party or join one? We have that covered too! */}
+        </p>
+      </div>
+
     </>
   )
 }
