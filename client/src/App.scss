@@ -1,5 +1,6 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 $dark-color: rgb(22, 22, 22);
 
@@ -9,8 +10,4 @@ body {
 
 .bg-dark {
   background-color: $dark-color !important;
-}
-
-.card {
-  // height: 400px !important;
 }

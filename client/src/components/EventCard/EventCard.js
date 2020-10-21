@@ -1,7 +1,7 @@
 import React from 'react';
 
 import moment from 'moment';
-import './EventCard.scss';
+// import './EventCard.scss';
 function EventCard({
   categories,
   date,
@@ -13,31 +13,38 @@ function EventCard({
   participants,
 }) {
   return (
-    <div>
-      <div className='eventCard'>
-        <div className='eventHeader'>
-          <h5 className='eventTitle'>{eventTitle}</h5>
-          <h6 className='eventDate'>
-            {moment(date * 1).format('MMMM Do , h:mm a')}
-          </h6>
-        </div>
-        <div className='eventDetails'>
-          <div className='eventDescLink'>
-            <p className='eventDescription'>{eventDescription}</p>
-            <a className='eventLink' href={eventLink}>
-              Event Link
-            </a>
+    <div className="card my-3 ">
+      <div className="card-header d-flex justify-content-between">
+        <div>
+          <div className='d-flex align-items-center'>
+            <i className="fas fa-calendar-check mr-2"></i>
+            <h3 className='m-0 font-weight-bolder'>{eventTitle}</h3>
           </div>
-          <div className='eventCharacteristics'>
-            <div className='eventCategories'>Event Categorie: {categories}</div>
-            <div className='eventLocation'>Location: {location}</div>
-            <div className='eventPeopleJoined'>
-              People Joined: {participants}
-            </div>
-            <div className='eventCreatedBy'>Created by: {userName}</div>
-          </div>
+          <span className="badge badge-info">{categories}</span>
         </div>
+        <span>
+          <i className="fas fa-user mr-2"></i>
+          {participants}
+        </span>
       </div>
+      <div className="card-body">
+        <p className="card-text">{eventDescription}</p>
+        <a href={eventLink} className="btn btn-success">
+        <i className="fas fa-link"></i> {` `}
+          Go to the event
+          </a>
+      </div>
+      <div className="card-footer text-muted d-flex justify-content-between">
+        <span className='font-weight-bolder'>
+          <i className="fas fa-map-marker-alt"></i>{` `}
+          {location}
+          <br />
+          <i class="fas fa-clock"></i> {` `}
+          {moment(date * 1).format('MMMM Do , h:mm a')}
+        </span>
+        <span className='font-weight-bold mt-auto'>{userName}</span>
+      </div>
+
     </div>
   );
 }

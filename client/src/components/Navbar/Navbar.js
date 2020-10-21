@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Rubik Mono One, sans-serif',
   },
   bg: {
-    backgroundColor: 'black',
+    backgroundColor: '#212529',
   },
   titleColor: {
     color: '#f50057'
