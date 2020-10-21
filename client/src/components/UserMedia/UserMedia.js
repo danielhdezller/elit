@@ -37,7 +37,7 @@ function UserMedia() {
     variables: { userId },
   });
   let linkedIn, github, portfolio;
-  if (data?.getUserLogedIn?.linkedIn) {
+  if (data?.getUserLogedIn) {
     linkedIn = data.getUserLogedIn.linkedIn;
     github = data.getUserLogedIn.gitHub;
     portfolio = data.getUserLogedIn.portfolio;
