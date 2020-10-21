@@ -44,9 +44,9 @@ function UserMedia() {
   }
   console.log('data:', data);
   return (
-    <div>
+    <div className='d-flex justify-content-center my-1 '>
       {linkedIn ? (
-        <showLinkedInComponent.showLinkedIn linkedIn={linkedIn} />
+        <span className='mr-2'><showLinkedInComponent.showLinkedIn linkedIn={linkedIn} /></span>
       ) : null}
       {github ? <showGithubComponent.showGithub github={github} /> : null}
       {portfolio ? (

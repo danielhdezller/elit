@@ -37,7 +37,7 @@ const UserProfile = ({ match }) => {
   const classes = useStyles();
   return (
     <>
-      <div className='row d-flex flex-column justify-content-center align-items-center py-5'>
+      <div className='row d-flex flex-column justify-content-center align-items-center pt-5 pb-2'>
         <div className={`${classes.root} col-lg-6 justify-content-center`}>
           <Avatar
             elevation={2}
@@ -47,21 +47,23 @@ const UserProfile = ({ match }) => {
           />
         </div>
         <div className='col-lg-6 text-center text-light '>
-          <Typography variant='h4' component='h2' className='mt-2 mb-3'>
+          <Typography variant='h4' component='h2' className='mt-2 '>
             {userData?.name}
           </Typography>
-          <UserStacks />
           <UserMedia />
+          <UserStacks />
         </div>
       </div>
-      <div className='row d-flex justify-content-center text-center p-5 rounded-lg'>
-        <div className='col-lg-6'>
-          <Typography variant='h5' component='h2'>
+      <div className='row d-flex justify-content-center text-center '>
+        <div className='col-lg-6 mt-3'>
+          <Typography className='text-light font-weight-bold mx-3' variant='h5' component='h2'>
             ABOUT
           </Typography>
-          <Typography variant='h5' component='h2'>
+          <p
+            style={{ backgroundColor: '#212529', borderRadius: '10px' }}
+            className='text-light font-weight-light mx-5 p-3 '>
             {userData?.bio}
-          </Typography>
+          </p>
         </div>
       </div>
     </>
