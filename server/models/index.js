@@ -35,15 +35,15 @@ const User = sequelize.define('User', {
   },
   email: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   githubLogin: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   githubToken: {
     type: Sequelize.STRING,
@@ -51,11 +51,11 @@ const User = sequelize.define('User', {
   },
   location: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   avatar: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   userStacks: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
