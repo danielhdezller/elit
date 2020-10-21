@@ -41,7 +41,7 @@ function UserEventList() {
             DeleteEvent({ variables: { id_event: event.id_event } })
           }
         >
-          Delete Event
+          <button className='btn btn-danger small'>Delete</button>
         </div>
       </div>
     ));

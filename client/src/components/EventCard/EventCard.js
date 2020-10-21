@@ -14,7 +14,7 @@ function EventCard({
 }) {
   return (
     <div className="card my-3 ">
-      <div className="card-header d-flex justify-content-between">
+      <div className="card-header text-light d-flex justify-content-between">
         <div>
           <div className='d-flex align-items-center'>
             <i className="fas fa-calendar-check mr-2"></i>
@@ -29,12 +29,12 @@ function EventCard({
       </div>
       <div className="card-body">
         <p className="card-text">{eventDescription}</p>
-        <a href={eventLink} className="btn btn-success">
+        <a href={eventLink} className="btn btn-primary">
         <i className="fas fa-link"></i> {` `}
           Go to the event
           </a>
       </div>
-      <div className="card-footer text-muted d-flex justify-content-between">
+      <div className="card-footer text-dark d-flex justify-content-between">
         <span className='font-weight-bolder'>
           <i className="fas fa-map-marker-alt"></i>{` `}
           {location}

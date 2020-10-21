@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Rubik Mono One, sans-serif',
   },
   bg: {
-    backgroundColor: '#212529',
+    backgroundColor: '#000100',
   },
   titleColor: {
-    color: '#f50057'
+    color: '#25A2B8'
   }
 }));
 
@@ -51,7 +51,7 @@ const Navbar = (props) => {
               onClick={onClickHandler}
               edge='start'
               className={classes.menuButton}
-              color='inherit'
+              // color='inherit'
               aria-label='menu'
             >
               <MenuIcon />

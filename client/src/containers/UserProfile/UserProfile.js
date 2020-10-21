@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(15),
     height: theme.spacing(15),
+    border: 'solid #25a2b8 3px'
   },
 }));
 

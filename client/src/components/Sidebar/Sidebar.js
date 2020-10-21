@@ -21,6 +21,9 @@ const useStyles = makeStyles({
   },
   paper: {
     background: "#161616"
+  },
+  textColor: {
+    color: "#25a2b8"
   }
 })
 
@@ -80,7 +83,9 @@ const Sidebar = (props) => {
           return (
             <ListItem button key={text} onClick={onClick}>
               {icon && <ListItemIcon className='text-light'>{icon}</ListItemIcon>}
-              <ListItemText className='text-danger' primary={text} />
+              <ListItemText 
+              className={classes.textColor}
+               primary={text} />
             </ListItem>
           );
         })}
