@@ -2,10 +2,11 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Chip from '@material-ui/core/Chip';
 import { useSelector } from 'react-redux';
 import { GET_USER_LOGED_IN } from '../../GraphQL/querys';
 import { useQuery } from '@apollo/client';
+import UserStacks from '../../components/UserStacks/UserStacks';
+import UserMedia from '../../components/UserMedia/UserMedia';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     color: '#FFFFFF',
   },
   large: {
-    width: theme.spacing(25),
-    height: theme.spacing(25),
+    width: theme.spacing(15),
+    height: theme.spacing(15),
   },
 }));
 
@@ -31,6 +32,7 @@ const UserProfile = ({ match }) => {
   let userData;
   if (data?.getUserLogedIn) {
     userData = data.getUserLogedIn;
+    console.log('userData:', userData);
   }
   const classes = useStyles();
   return (
@@ -44,26 +46,21 @@ const UserProfile = ({ match }) => {
             className={`${classes.large} shadow-lg`}
           />
         </div>
-        <div className='col-lg-6 text-center'>
-          <Typography variant='h3' component='h2'>
+        <div className='col-lg-6 text-center text-light '>
+          <Typography variant='h4' component='h2' className='mt-2 mb-3'>
             {userData?.name}
           </Typography>
-          <Chip size='small' color='primary' label='JavaScript' />
-          <Chip size='small' color='primary' label='Golang' />
-          <Chip size='small' color='primary' label='Python' />
+          <UserStacks />
+          <UserMedia />
         </div>
       </div>
-      <div
-        className='row d-flex justify-content-center text-center p-5 rounded-lg'
-        //  style={{ backgroundColor: '#3f51b524' }}
-      >
+      <div className='row d-flex justify-content-center text-center p-5 rounded-lg'>
         <div className='col-lg-6'>
           <Typography variant='h5' component='h2'>
             ABOUT
           </Typography>
           <Typography variant='h5' component='h2'>
-            when an unknown printer took a galley of type and scrambled it to
-            make a type specimen book. It has survived not only five centuries,
+            {userData?.bio}
           </Typography>
         </div>
       </div>

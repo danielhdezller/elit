@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 // import Filtering from '../Filtering/Filtering'
 import TopDescription from '../TopDescription/TopDescription'
+=======
+>>>>>>> 833ee15a58c7fc81ed93d8e6144a3bacaa221585
 import User from '../User/User'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -20,7 +23,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 2
   }
 };
 
@@ -33,6 +36,7 @@ const Home = ({ users }) => {
 
   return (
     <>
+<<<<<<< HEAD
     <div>
       <TopDescription></TopDescription>
     </div>
@@ -46,11 +50,23 @@ const Home = ({ users }) => {
         </div>
       </div> */}
       <div>
+=======
+      <section className='d-flex justify-content-center align-items-center flex-column m-5 '>
+        <h1 className='text-light'>CONNECT</h1>
+        <div>
+          <span className='h2' role='img' aria-label='programming'>👩‍💻</span>
+          <span className='h4 mx-3' role='img' aria-label='programming'>🔗</span>
+          <span className='h2' role='img' aria-label='programming'>👨‍💻</span>
+        </div>
+      </section>
+>>>>>>> 833ee15a58c7fc81ed93d8e6144a3bacaa221585
 
+      <div>
         <Carousel
           ssr={false}
           responsive={responsive}
           infinite={true}
+
         >
           {(filter || [])?.map((user) => (
 

@@ -1,8 +1,16 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
-$dark-color: beige;
+$dark-color: rgb(22, 22, 22);
 
 body {
   background-color: $dark-color;
+}
+
+.bg-dark {
+  background-color: $dark-color !important;
+}
+
+.card {
+  // height: 400px !important;
 }

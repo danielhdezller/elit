@@ -1,5 +1,6 @@
 import React from 'react'
 import User from '../User/User'
+import { motion } from 'framer-motion'
 
 const Community = ({ users }) => {
 
@@ -9,14 +10,14 @@ const Community = ({ users }) => {
   users?.filter(user => input ? user.name.includes(input) : user)
     .map(user =>
       (
-        <div key={user.id} className='col-lg-3'>
+        <motion.div whileHover={{opacity:1}} key={user.id} className='col-6 col-lg-3'>
           <User
             key={user.id}
             username={user.githubLogin}
             firstname={user.name}
             avatar={user.avatar}
           />
-        </div>
+        </motion.div>
       )
     )
 
@@ -25,7 +26,7 @@ const Community = ({ users }) => {
       <div className='row justify-content-center my-5'>
         <div className="input-group input-group-lg col-lg-5">
           <div className="input-group-prepend">
-            <span className="input-group-text bg-success text-light">
+            <span className="input-group-text bg-danger text-light">
               Search users
               </span>
           </div>
@@ -38,9 +39,9 @@ const Community = ({ users }) => {
         </div>
       </div>
 
-      <div className='row'>
+      <motion.div layout className='row'>
         {searchCommunity}
-      </div>
+      </motion.div>
     </>
   )
 }
