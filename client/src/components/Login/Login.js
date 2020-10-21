@@ -36,19 +36,15 @@ const Login = () => {
     setcode(true);
   }
   if (response) {
-    console.log('response:', response);
     history.push(`/member/${response.authorizeWithGithub.user.githubLogin}`);
     let userLoged = {
       authenticated: true,
       userId: response.authorizeWithGithub.user.id,
       userName: response.authorizeWithGithub.user.name,
       githubLogin: response.authorizeWithGithub.user.githubLogin,
-
       email: response.authorizeWithGithub.user.email,
       avatar: response.authorizeWithGithub.user.avatar,
-
     };
-    console.log('userLoged:', userLoged);
     dispatch({
       type: 'UPDATE_AUTHENTICATION',
       payload: userLoged,

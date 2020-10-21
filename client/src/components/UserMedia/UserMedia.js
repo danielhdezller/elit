@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { useSelector } from 'react-redux';
-import { GET_USER_LOGED_IN } from '../../GraphQL/querys';
+import { useHistory } from 'react-router-dom';
+import { GET_USER } from '../../GraphQL/querys';
 
 const showLinkedInComponent = {
   showLinkedIn: function showLinkedIn(props) {
@@ -32,15 +32,16 @@ const showPortfolioComponent = {
 };
 
 function UserMedia() {
-  const userId = useSelector((store) => store.authenticated.userId);
-  const { data } = useQuery(GET_USER_LOGED_IN, {
-    variables: { userId },
+  const history = useHistory();
+  const githubLogin = history.location.pathname.split('/').slice(2).join();
+  const { data } = useQuery(GET_USER, {
+    variables: { githubLogin },
   });
   let linkedIn, github, portfolio;
-  if (data?.getUserLogedIn) {
-    linkedIn = data.getUserLogedIn.linkedIn;
-    github = data.getUserLogedIn.gitHub;
-    portfolio = data.getUserLogedIn.portfolio;
+  if (data?.getUser) {
+    linkedIn = data.getUser.linkedIn;
+    github = data.getUser.gitHub;
+    portfolio = data.getUser.portfolio;
   }
   console.log('data:', data);
   return (

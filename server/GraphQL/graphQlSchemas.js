@@ -8,6 +8,7 @@ const typeDefs = gql`
     getEvents: [EventData]
     getEventByUser(userId: Int!): [EventData]
     getUserLogedIn(userId: Int!): User
+    getUser(githubLogin: String!): User
   }
 
   type Mutation {
