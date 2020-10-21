@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 // import Filtering from '../Filtering/Filtering'
-
+import TopDescription from '../TopDescription/TopDescription'
 import User from '../User/User'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
+import BottomDescription from '../BottomDescription/BottomDescription'
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -33,15 +33,18 @@ const Home = ({ users }) => {
 
   return (
     <>
+    <div>
+      <TopDescription></TopDescription>
+    </div>
       {/* <Filtering setFilter={setFilter} /> */}
 
-      <div className="card text-center mt-5">
+      {/* <div className="card text-center mt-5">
         <div className="card-body">
           <h5 className="card-title display-4">
             connect.collaborate.create()
             </h5>
         </div>
-      </div>
+      </div> */}
       <div>
 
         <Carousel
@@ -62,6 +65,8 @@ const Home = ({ users }) => {
         </Carousel>
 
       </div>
+      <BottomDescription></BottomDescription>
+
     </>
   )
 }
