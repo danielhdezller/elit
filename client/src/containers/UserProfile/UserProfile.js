@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     color: '#FFFFFF',
   },
   large: {
-    width: theme.spacing(25),
-    height: theme.spacing(25),
+    width: theme.spacing(15),
+    height: theme.spacing(15),
   },
 }));
 
@@ -46,8 +46,8 @@ const UserProfile = ({ match }) => {
             className={`${classes.large} shadow-lg`}
           />
         </div>
-        <div className='col-lg-6 text-center'>
-          <Typography variant='h3' component='h2'>
+        <div className='col-lg-6 text-center text-light '>
+          <Typography variant='h4' component='h2' className='mt-2 mb-3'>
             {userData?.name}
           </Typography>
           <UserStacks />

@@ -25,8 +25,11 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Rubik Mono One, sans-serif',
   },
   bg: {
-    backgroundColor: '#1d1d1d',
+    backgroundColor: 'black',
   },
+  titleColor: {
+    color: '#f50057'
+  }
 }));
 
 const Navbar = (props) => {
@@ -55,7 +58,7 @@ const Navbar = (props) => {
             </IconButton>
           ) : null}
           <Typography variant='h4' className={classes.title}>
-            <Link to='/'>Elit</Link>
+            <Link to='/' className={classes.titleColor}>Elit</Link>
           </Typography>
           {authenticated.authenticated ? <Logout /> : <Login />}
         </Toolbar>
