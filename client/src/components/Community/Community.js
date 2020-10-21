@@ -25,7 +25,7 @@ const Community = ({ users }) => {
 
   return (
     <>
-      <div className='row justify-content-center my-5'>
+      <div className='row justify-content-center my-5 px-3'>
         <div className="input-group input-group-lg col-lg-5">
           <input
             value={input}
@@ -40,7 +40,7 @@ const Community = ({ users }) => {
         </div>
       </div>
 
-      <motion.div layout className='row'>
+      <motion.div layout className='row px-3'>
         {searchCommunity}
       </motion.div>
     </>

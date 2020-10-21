@@ -114,7 +114,7 @@ const EventForm = () => {
                 name='eventLink'
                 component='div'
               />
-              <div className='field'>
+              <div className='field text-light'>
                 <CustomSelect
                   className='eventField'
                   label='Event Category'

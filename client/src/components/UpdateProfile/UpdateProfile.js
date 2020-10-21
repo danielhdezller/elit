@@ -101,10 +101,10 @@ function UpdateProfileEventForm() {
       >
         {({ isSubmitting }) => (
           <Form autoComplete='off' className='form-group d-flex flex-column justify-content-center'>
-            <div>{userData?.name}</div>
+            <p className='text-light'>{userData?.name}</p>
             <Field className='form-control mb-1' type='text' name='name' placeholder='User name' />
             <ErrorMessage className='error' name='name' component='div' />
-            <div>{userData?.email}</div>
+            <p className='text-light mt-1'>{userData?.email}</p>
             <Field className='form-control mb-1' type='text' name='email' placeholder='Email' />
             <ErrorMessage className='error' name='name' component='div' />
             <Field className='form-control mb-1' type='text' placeholder='Linkedin profile' name='linkedIn' />

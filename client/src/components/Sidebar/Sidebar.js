@@ -20,9 +20,13 @@ const useStyles = makeStyles({
     width: '190px',
   },
   paper: {
-    background: '#161616',
+    background: "#161616"
   },
-});
+  textColor: {
+    color: "#25a2b8"
+  }
+})
+
 
 const Sidebar = (props) => {
   const classes = useStyles();
@@ -78,10 +82,11 @@ const Sidebar = (props) => {
           const { text, icon, onClick } = item;
           return (
             <ListItem button key={text} onClick={onClick}>
-              {icon && (
-                <ListItemIcon className='text-light'>{icon}</ListItemIcon>
-              )}
-              <ListItemText className='text-danger' primary={text} />
+              {icon && <ListItemIcon className='text-light'>{icon}</ListItemIcon>}
+              <ListItemText 
+              className={classes.textColor}
+               primary={text} />
+
             </ListItem>
           );
         })}

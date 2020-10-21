@@ -15,7 +15,7 @@ function UserStacks() {
     stacks = data.getUserLogedIn.userStacks;
     console.log('stacks:', stacks);
     showStacks = stacks.map((stack) => (
-      <Chip size='small' color='primary' label={stack} />
+      <Chip style={{backgroundColor:'#120D31', color:'white', margin:'0 3px'}} size='small' label={stack} />
     ));
   }
   return <div>{showStacks}</div>;
