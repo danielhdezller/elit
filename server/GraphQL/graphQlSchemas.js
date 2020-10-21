@@ -40,6 +40,7 @@ const typeDefs = gql`
     gitHub: String
     portfolio: String
     bio: String
+    userStacks: [String]
   }
 
   type UpdateUserResponse {
