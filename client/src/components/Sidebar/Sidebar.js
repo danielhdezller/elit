@@ -8,16 +8,16 @@ import {
 } from '@material-ui/core/';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import AccountBox from "@material-ui/icons/AccountBox";
-import Event from "@material-ui/icons/Event";
-import DateRange from "@material-ui/icons/DateRange";
-import AssignmentInd from "@material-ui/icons/AssignmentInd";
-import Group from "@material-ui/icons/Group";
-import { makeStyles } from "@material-ui/core/styles";
+import AccountBox from '@material-ui/icons/AccountBox';
+import Event from '@material-ui/icons/Event';
+import DateRange from '@material-ui/icons/DateRange';
+import AssignmentInd from '@material-ui/icons/AssignmentInd';
+import Group from '@material-ui/icons/Group';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   drawer: {
-    width: "190px",
+    width: '190px',
   },
   paper: {
     background: "#161616"
@@ -27,8 +27,8 @@ const useStyles = makeStyles({
   }
 })
 
-const Sidebar = (props) => {
 
+const Sidebar = (props) => {
   const classes = useStyles();
 
   const githubLogin = useSelector((state) => state.authenticated.githubLogin);
@@ -45,39 +45,39 @@ const Sidebar = (props) => {
     {
       text: 'My Profile',
       onClick: () => linkClick(`/member/${githubLogin}`),
-      icon: <AccountBox />
+      icon: <AccountBox />,
     },
     {
       text: 'All Events',
       onClick: () => linkClick(`/member/${githubLogin}/events`),
-      icon: <Event />
+      icon: <Event />,
     },
     {
       text: 'My Events',
       onClick: () => linkClick(`/member/${githubLogin}/myevents`),
-      icon: <DateRange />
+      icon: <DateRange />,
     },
     {
       text: 'Update Profile',
       onClick: () => linkClick(`/member/${githubLogin}/updateprofile`),
-      icon: <AssignmentInd />
+      icon: <AssignmentInd />,
     },
     {
       text: 'Community',
       onClick: () => linkClick(`/member/${githubLogin}/community`),
-      icon: <Group />
+      icon: <Group />,
     },
   ];
 
-  const handleClose = () => dispatch({ type: 'TOGGLE', data: false })
+  const handleClose = () => dispatch({ type: 'TOGGLE', data: false });
 
   return (
     <Drawer
-    classes={{ paper: classes.paper }}
+      classes={{ paper: classes.paper }}
       open={authenticated.display}
       onClose={handleClose}
     >
-      <List  >
+      <List>
         {itemsList.map((item, index) => {
           const { text, icon, onClick } = item;
           return (
@@ -86,6 +86,7 @@ const Sidebar = (props) => {
               <ListItemText 
               className={classes.textColor}
                primary={text} />
+
             </ListItem>
           );
         })}
