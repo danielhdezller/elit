@@ -32,7 +32,7 @@ const EventForm = () => {
   });
 
   return (
-    <div className='formContainer'>
+    <div className='formContainer w-100'>
       <div className='formContainer '>
         <h3 className='text-light text-center mt-5 mb-2'>
           Add a new event
