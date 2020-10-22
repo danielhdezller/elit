@@ -7,6 +7,7 @@ import { DELETE_EVENT } from '../../GraphQL/mutations';
 
 function UserEventList() {
   const { userId } = useSelector((state) => state.authenticated);
+  console.log('userId:', userId);
   const [DeleteEvent] = useMutation(DELETE_EVENT, {
     refetchQueries: [
       {
@@ -18,6 +19,7 @@ function UserEventList() {
   const { data } = useQuery(GET_USER_EVENTS, {
     variables: { userId },
   });
+  console.log('data:', data);
   let events = [],
     showEvents;
   if (data?.getEventByUser) {

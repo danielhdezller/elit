@@ -37,8 +37,8 @@ export const GET_ALL_EVENTS = gql`
 `;
 
 export const GET_USER_EVENTS = gql`
-  query getUser($userId: Int!) {
-    getUser(userId: $userId) {
+  query getEventByUser($userId: Int!) {
+    getEventByUser(userId: $userId) {
       id_event
       title
       date
