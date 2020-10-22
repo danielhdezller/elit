@@ -12,9 +12,8 @@ const User = ({ username, firstname, avatar }) => {
               className='
               card-title 
               font-weight-bold 
-              text-light
-              '
-            >
+              primary
+              '>
               {firstname}
             </h5>
           </div>
