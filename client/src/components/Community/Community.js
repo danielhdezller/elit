@@ -26,6 +26,7 @@ const Community = ({ users }) => {
   return (
     <>
       <div className='row justify-content-center my-5 px-3'>
+          <h4 className='text-light font-weight-bold'>Our Community</h4>
         <div className="input-group input-group-lg col-lg-5">
           <input
             value={input}

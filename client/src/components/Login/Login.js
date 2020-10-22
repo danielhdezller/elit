@@ -11,8 +11,8 @@ import { useDispatch } from 'react-redux';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#25A2B8'
-
+    backgroundColor: '#25A2B8',
+    color:'#fff',
   },
 }));
 
@@ -58,7 +58,7 @@ const Login = () => {
     <Button
       onClick={() => getUsersCode()}
       variant='contained'
-      // color='secondary'
+      // color='white'
       className={classes.button}
       startIcon={<GitHubIcon />}
     >
