@@ -51,7 +51,7 @@ const Navbar = (props) => {
               onClick={onClickHandler}
               edge='start'
               className={classes.menuButton}
-              // color='inherit'
+              color='inherit'
               aria-label='menu'
             >
               <MenuIcon />

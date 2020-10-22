@@ -35,7 +35,7 @@ const Home = ({ users }) => {
         <small className='font-weight-bold text-light text-center'>Join our community</small>
         <h3
           style={{ lineHeight: '51px' }}
-          className='text-danger text-center display-4'>
+          className='primary text-center display-4'>
           connect <br />
             .collaborate()
             </h3>
@@ -64,13 +64,17 @@ const Home = ({ users }) => {
         </Carousel>
 
       </div>
-      <div className="alert alert-danger m-5 text-center" role="alert">
+      <div
+        className="m-5 text-center rounded p-3"
+        style={{ backgroundColor: 'rgba(37, 162, 184, 0.1)' }}
+      >
         <h4
+          className='primary'
           style={{ fontFamily: 'Rubik Mono One, sans-serif' }}
         >
           ELIT
           </h4>
-        <p>
+        <p className='text-light'>
           Was created to provide a platform for developers to connect.
           Here you can find people to collaborate on your project or join
           others to help them.

@@ -24,7 +24,7 @@ function UserEventList() {
     events = data.getEventByUser;
     let eventSorted = [...events].sort((a, b) => +a.date - +b.date);
     showEvents = eventSorted.map((event) => (
-      <div key={event.id_event} className='col-lg-3'>
+      <div key={event.id_event}>
         <EventCard
           key={event.id_event}
           categories={event.categories}
@@ -41,7 +41,7 @@ function UserEventList() {
             DeleteEvent({ variables: { id_event: event.id_event } })
           }
         >
-          <button className='btn btn-danger small'>Delete</button>
+          <button className='btn badge badge-danger'>Delete</button>
         </div>
       </div>
     ));

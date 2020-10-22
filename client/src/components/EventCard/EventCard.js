@@ -20,7 +20,7 @@ function EventCard({
             <i className="fas fa-calendar-check mr-2"></i>
             <h3 className='m-0 font-weight-bolder'>{eventTitle}</h3>
           </div>
-          <span className="badge badge-info">{categories}</span>
+          <span className="badge badge-dark">{categories}</span>
         </div>
         <span>
           <i className="fas fa-user mr-2"></i>
@@ -29,7 +29,7 @@ function EventCard({
       </div>
       <div className="card-body">
         <p className="card-text">{eventDescription}</p>
-        <a href={eventLink} className="btn btn-primary">
+        <a href={eventLink} className="btn btn-success">
         <i className="fas fa-link"></i> {` `}
           Go to the event
           </a>

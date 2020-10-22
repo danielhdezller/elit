@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(15),
     height: theme.spacing(15),
+    border: 'solid #25a2b8 3px'
+
   },
 }));
 
@@ -71,18 +73,18 @@ function UpdateProfileEventForm() {
   return (
     <div
       className='
-      d-flex 
-      justify-content-center 
-      flex-column 
+      d-flex
+      flex-column
       align-items-center
-      mt-5
+      m-auto
+      col-10
       '
     >
       <Avatar
         elevation={2}
         alt='User Picture'
         src={avatar}
-        className={classes.large}
+        className={`${classes.large} mt-5`}
       />
       <h3 className='text-light my-3'>Update Profile</h3>
       <Formik
@@ -100,12 +102,12 @@ function UpdateProfileEventForm() {
         }}
       >
         {({ isSubmitting }) => (
-          <Form autoComplete='off' className='form-group d-flex flex-column justify-content-center'>
-            <p className='text-light'>{userData?.name}</p>
-            <Field className='form-control mb-1' type='text' name='name' placeholder='User name' />
+          <Form autoComplete='off' className='w-100 form-group'>
+            <span className='text-light font-weight-bold'>{userData?.name}</span>
+            <Field className='form-control mb-2 mt-1' type='text' name='name' placeholder='User name' />
             <ErrorMessage className='error' name='name' component='div' />
-            <p className='text-light mt-1'>{userData?.email}</p>
-            <Field className='form-control mb-1' type='text' name='email' placeholder='Email' />
+            <span className='text-light  font-weight-bold'>{userData?.email}</span>
+            <Field className='form-control mb-1 mt-1' type='text' name='email' placeholder='Email' />
             <ErrorMessage className='error' name='name' component='div' />
             <Field className='form-control mb-1' type='text' placeholder='Linkedin profile' name='linkedIn' />
             <ErrorMessage className='error' name='linkedIn' component='div' />
@@ -117,9 +119,10 @@ function UpdateProfileEventForm() {
             <Field className='form-control my-1' as='textarea' placeholder='Bio' name='bio' />
             <ErrorMessage className='error' name='bio' component='div' />
             <button
-              className='btn btn-success'
+              className='btn btn-success w-100'
               type='submit'
               disabled={isSubmitting}
+              style={{ backgroundColor:'#25A2B8'}}
             >
               Update Profile
             </button>

@@ -66,7 +66,7 @@ const UserProfile = ({ match }) => {
             ABOUT
           </Typography>
           <p
-            style={{ backgroundColor: '#212529', borderRadius: '10px' }}
+            style={{ backgroundColor: '#25a2b81a', borderRadius: '10px' }}
             className='text-light font-weight-light mx-5 p-3 '>
             {userData?.bio}
           </p>
