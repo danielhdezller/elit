@@ -131,9 +131,10 @@ const EventForm = () => {
               <Field className='form-control my-2' type='location' placeholder='Location' name='location' />
               <ErrorMessage className='error' name='location' component='div' />
               <button
-                className='btn btn-success formSubmit text-center w-100'
+                className='btn formSubmit text-center w-100'
                 type='submit'
                 disabled={isSubmitting}
+                style={{ backgroundColor:'#25A2B8' }}
               >
                 Create Event
               </button>

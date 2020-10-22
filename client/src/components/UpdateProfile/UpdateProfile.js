@@ -120,6 +120,7 @@ function UpdateProfileEventForm() {
               className='btn btn-success'
               type='submit'
               disabled={isSubmitting}
+              style={{ backgroundColor:'#25A2B8'}}
             >
               Update Profile
             </button>
