@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import Filtering from '../Filtering/Filtering'
-
 import User from '../User/User'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -20,7 +18,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 2
   }
 };
 
@@ -33,21 +31,25 @@ const Home = ({ users }) => {
 
   return (
     <>
-      {/* <Filtering setFilter={setFilter} /> */}
+      <section className='d-flex justify-content-center align-items-center flex-column m-5 '>
+        <small className='font-weight-bold text-light text-center'>Join our community</small>
+        <h3
+          style={{ lineHeight: '51px' }}
+          className='primary text-center display-4'>
+          connect <br />
+            .collaborate()
+            </h3>
+        <h4 className='text-light text-center '>
+          Our mission is to connect developers across the globe.
+          </h4>
+      </section>
 
-      <div className="card text-center mt-5">
-        <div className="card-body">
-          <h5 className="card-title display-4">
-            connect.collaborate.create()
-            </h5>
-        </div>
-      </div>
       <div>
-
         <Carousel
           ssr={false}
           responsive={responsive}
           infinite={true}
+
         >
           {(filter || [])?.map((user) => (
 
@@ -62,6 +64,25 @@ const Home = ({ users }) => {
         </Carousel>
 
       </div>
+      <div
+        className="m-5 text-center rounded p-3"
+        style={{ backgroundColor: 'rgba(37, 162, 184, 0.1)' }}
+      >
+        <h4
+          className='primary'
+          style={{ fontFamily: 'Rubik Mono One, sans-serif' }}
+        >
+          ELIT
+          </h4>
+        <p className='text-light'>
+          Was created to provide a platform for developers to connect.
+          Here you can find people to collaborate on your project or join
+          others to help them.
+           {/* to develop something amazing. Just want to set
+          up a party or join one? We have that covered too! */}
+        </p>
+      </div>
+
     </>
   )
 }

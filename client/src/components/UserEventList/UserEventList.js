@@ -7,6 +7,7 @@ import { DELETE_EVENT } from '../../GraphQL/mutations';
 
 function UserEventList() {
   const { userId } = useSelector((state) => state.authenticated);
+  console.log('userId:', userId);
   const [DeleteEvent] = useMutation(DELETE_EVENT, {
     refetchQueries: [
       {
@@ -18,13 +19,14 @@ function UserEventList() {
   const { data } = useQuery(GET_USER_EVENTS, {
     variables: { userId },
   });
+  console.log('data:', data);
   let events = [],
     showEvents;
   if (data?.getEventByUser) {
     events = data.getEventByUser;
     let eventSorted = [...events].sort((a, b) => +a.date - +b.date);
     showEvents = eventSorted.map((event) => (
-      <div key={event.id_event} className='col-lg-3'>
+      <div key={event.id_event}>
         <EventCard
           key={event.id_event}
           categories={event.categories}
@@ -41,7 +43,7 @@ function UserEventList() {
             DeleteEvent({ variables: { id_event: event.id_event } })
           }
         >
-          Delete Event
+          <button className='btn badge badge-danger'>Delete</button>
         </div>
       </div>
     ));

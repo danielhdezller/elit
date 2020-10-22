@@ -8,6 +8,7 @@ const typeDefs = gql`
     getEvents: [EventData]
     getEventByUser(userId: Int!): [EventData]
     getUserLogedIn(userId: Int!): User
+    getUser(githubLogin: String!): User
   }
 
   type Mutation {
@@ -40,6 +41,7 @@ const typeDefs = gql`
     gitHub: String
     portfolio: String
     bio: String
+    userStacks: [String]
   }
 
   type UpdateUserResponse {

@@ -7,7 +7,7 @@ import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import users from './mockData';
-import UserProfile from './components/UserProfile/UserProfile';
+import UserProfile from './containers/UserProfile/UserProfile';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_USERS } from './GraphQL/querys';
 import Footer from './components/Footer/Footer';
@@ -33,19 +33,18 @@ function App() {
             )}
           />
           <Route exact path='/dashboard' component={Dashboard} />
-          <Route
-            exact
-            path='/member/:name'
-            render={({ match }) => <UserProfile match={match} users={users} />}
-          />
+          <Route exact path='/member/:name' component={UserProfile} />
           <Route
             exact
             path='/member/:name/events'
-            // render={() => <CommunityEvents events={} />}
             component={CommunityEvents}
           />
           <Route exact path='/member/:name/myevents' render={MyEvents} />
-          <Route exact path='/member/:name/updateprofile' render={UpdateProfileEvents} />
+          <Route
+            exact
+            path='/member/:name/updateprofile'
+            render={UpdateProfileEvents}
+          />
           <Route
             exact
             path='/member/:name/community'

@@ -34,6 +34,16 @@ const resolvers = {
         const user = await User.findOne({
           where: { id: userId },
         });
+        return user;
+      } catch (err) {
+        console.log(error);
+      }
+    },
+    getUser: async (parent, { githubLogin }) => {
+      try {
+        const user = await User.findOne({
+          where: { githubLogin: githubLogin },
+        });
         console.log('user:', user);
         return user;
       } catch (err) {
@@ -87,9 +97,11 @@ const resolvers = {
     },
 
     async UpdateUserData(parent, { input }) {
+      console.log('input:', input);
       try {
         const userId = input.userId;
         const user = await User.findOne({ where: { id: userId } });
+        console.log('user:', user);
         user.name = input.name;
         user.email = input.email;
         user.linkedIn = input.linkedIn;
@@ -107,7 +119,6 @@ const resolvers = {
     },
 
     async authorizeWithGithub(parent, { code }) {
-      console.log('hola user');
       // 1. Obtain data from GitHub
       let githubUser = await requestGithubUser({
         client_id: `${process.env.CLIENT_ID}`,

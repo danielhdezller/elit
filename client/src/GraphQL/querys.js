@@ -66,6 +66,26 @@ export const GET_USER_LOGED_IN = gql`
       gitHub
       portfolio
       bio
+      userStacks
+    }
+  }
+`;
+
+export const GET_USER = gql`
+  query getUser($githubLogin: String!) {
+    getUser(githubLogin: $githubLogin) {
+      id
+      email
+      name
+      githubLogin
+      githubToken
+      location
+      avatar
+      linkedIn
+      gitHub
+      portfolio
+      bio
+      userStacks
     }
   }
 `;
