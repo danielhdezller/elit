@@ -64,3 +64,7 @@ Was created to provide a platform for **developers to connect**. Here you can fi
 - Daniel Hernández Llerena - [GitHub](https://github.com/danielhdezller) - [LinkedIn](https://www.linkedin.com/in/daniel-hernandez-ller/)
 - Hamed Sedighi - [GitHub](https://github.com/herol3oy) - [LinkedIn](https://www.linkedin.com/in/hamed-sedighi/)
 - Katarzyna Kolny - [GitHub](https://github.com/kasia-js) - [LinkedIn](https://www.linkedin.com/in/katarzyna-kolny-8b3384b9/)
+
+## License
+
+MIT © [Daniel Hernández](https://github.com/danielhdezller)
