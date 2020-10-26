@@ -1,4 +1,5 @@
 [![GitHub license](https://img.shields.io/github/license/danielhdezller/elit)](https://github.com/danielhdezller/elit/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/danielhdezller/elit)](https://GitHub.com/danielhdezller/elit/issues)
 
 
 # ELIT
