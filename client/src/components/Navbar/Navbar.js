@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Rubik Mono One, sans-serif',
   },
   bg: {
-    backgroundColor: 'black',
+    backgroundColor: '#000100',
   },
   titleColor: {
-    color: '#f50057'
+    color: '#25A2B8'
   }
 }));
 

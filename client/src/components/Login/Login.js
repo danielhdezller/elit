@@ -11,6 +11,8 @@ import { useDispatch } from 'react-redux';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
+    backgroundColor: '#25A2B8',
+    color:'#fff',
   },
 }));
 
@@ -34,19 +36,15 @@ const Login = () => {
     setcode(true);
   }
   if (response) {
-    console.log('response:', response);
     history.push(`/member/${response.authorizeWithGithub.user.githubLogin}`);
     let userLoged = {
       authenticated: true,
       userId: response.authorizeWithGithub.user.id,
       userName: response.authorizeWithGithub.user.name,
       githubLogin: response.authorizeWithGithub.user.githubLogin,
-
       email: response.authorizeWithGithub.user.email,
       avatar: response.authorizeWithGithub.user.avatar,
-
     };
-    console.log('userLoged:', userLoged);
     dispatch({
       type: 'UPDATE_AUTHENTICATION',
       payload: userLoged,
@@ -56,7 +54,7 @@ const Login = () => {
     <Button
       onClick={() => getUsersCode()}
       variant='contained'
-      color='secondary'
+      // color='white'
       className={classes.button}
       startIcon={<GitHubIcon />}
     >

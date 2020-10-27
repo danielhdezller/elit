@@ -33,12 +33,16 @@ const Home = ({ users }) => {
   return (
     <>
       <section className='d-flex justify-content-center align-items-center flex-column m-5 '>
-        <h1 className='text-light'>CONNECT</h1>
-        <div>
-          <span className='h2' role='img' aria-label='programming'>👩‍💻</span>
-          <span className='h4 mx-3' role='img' aria-label='programming'>🔗</span>
-          <span className='h2' role='img' aria-label='programming'>👨‍💻</span>
-        </div>
+        <small className='font-weight-bold text-light text-center'>Join our community</small>
+        <h3
+          style={{ lineHeight: '51px' }}
+          className='primary text-center display-4'>
+          connect <br />
+            .collaborate()
+            </h3>
+        <h4 className='text-light text-center '>
+          Our mission is to connect developers across the globe.
+          </h4>
       </section>
       <TopDescription></TopDescription>
 
@@ -62,7 +66,7 @@ const Home = ({ users }) => {
         </Carousel>
 
       </div>
-      <BottomDescription></BottomDescription>
+
 
     </>
   )

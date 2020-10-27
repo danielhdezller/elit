@@ -34,15 +34,10 @@ function App() {
             )}
           />
           <Route exact path='/dashboard' component={Dashboard} />
-          <Route
-            exact
-            path='/member/:name'
-            render={({ match }) => <UserProfile match={match} users={users} />}
-          />
+          <Route exact path='/member/:name' component={UserProfile} />
           <Route
             exact
             path='/member/:name/events'
-            // render={() => <CommunityEvents events={} />}
             component={CommunityEvents}
           />
           <Route exact path='/member/:name/myevents' render={MyEvents} />

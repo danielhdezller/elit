@@ -8,6 +8,26 @@ import { stacksOptions } from '../../config/data';
 import { UPDATE_USERDATA } from '../../GraphQL/mutations';
 import { GET_USER_LOGED_IN } from '../../GraphQL/querys';
 import { useMutation, useQuery } from '@apollo/client';
+import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  purple: {
+    color: '#FFFFFF',
+  },
+  large: {
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+    border: 'solid #25a2b8 3px'
+
+  },
+}));
 
 const CustomSelectStack = ({ setStacksSelections }) => {
   return (
@@ -28,6 +48,9 @@ const CustomSelectStack = ({ setStacksSelections }) => {
 };
 
 function UpdateProfileEventForm() {
+
+  const classes = useStyles();
+
   const [stacksSelections, setStacksSelections] = useState([]);
   const userId = useSelector((store) => store.authenticated.userId);
   const avatar = useSelector((store) => store.authenticated.avatar);
@@ -48,58 +71,64 @@ function UpdateProfileEventForm() {
   }
 
   return (
-    <div>
-      <div>
-        <img src={avatar} alt='User' />
-        <h3>Update Profile</h3>
-        <Formik
-          initialValues={{
-            userId: userId,
-          }}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              const results = { ...values };
-              results.userStacks = stacksSelections;
-              console.log('results:', results);
-              updateUserData({ variables: { input: results } });
-              setSubmitting(false);
-            }, 400);
-          }}
-        >
-          {({ isSubmitting }) => (
-            <Form autoComplete='off'>
-              <div>{userData?.name}</div>
-              <Field type='text' name='name' placeholder='user Name' />
-              <ErrorMessage className='error' name='name' component='div' />
-              <div>{userData?.email}</div>
-              <Field type='text' name='email' placeholder='email' />
-              <ErrorMessage className='error' name='name' component='div' />
-              <Field type='text' placeholder='LinkedIn link' name='linkedIn' />
-              <ErrorMessage className='error' name='linkedIn' component='div' />
-              <Field type='text' placeholder='GitHub link' name='gitHub' />
-              <ErrorMessage className='error' name='gitHub' component='div' />
-              <Field
-                type='text'
-                placeholder='Portfolio/Personal website link'
-                name='portfolio'
-              />
-              <ErrorMessage
-                className='error'
-                name='portfolio'
-                component='div'
-              />
-              <CustomSelectStack
-                setStacksSelections={setStacksSelections}
-              ></CustomSelectStack>
-              <Field as='textarea' placeholder='Bio' name='bio' />
-              <ErrorMessage className='error' name='bio' component='div' />
-              <button type='submit' disabled={isSubmitting}>
-                Update Profile
-              </button>
-            </Form>
-          )}
-        </Formik>
-      </div>
+    <div
+      className='
+      d-flex
+      flex-column
+      align-items-center
+      m-auto
+      col-10
+      '
+    >
+      <Avatar
+        elevation={2}
+        alt='User Picture'
+        src={avatar}
+        className={`${classes.large} mt-5`}
+      />
+      <h3 className='text-light my-3'>Update Profile</h3>
+      <Formik
+        initialValues={{
+          userId: userId,
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            const results = { ...values };
+            results.userStacks = stacksSelections;
+            console.log('results:', results);
+            updateUserData({ variables: { input: results } });
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form autoComplete='off' className='w-100 form-group'>
+            <span className='text-light font-weight-bold'>{userData?.name}</span>
+            <Field className='form-control mb-2 mt-1' type='text' name='name' placeholder='User name' />
+            <ErrorMessage className='error' name='name' component='div' />
+            <span className='text-light  font-weight-bold'>{userData?.email}</span>
+            <Field className='form-control mb-1 mt-1' type='text' name='email' placeholder='Email' />
+            <ErrorMessage className='error' name='name' component='div' />
+            <Field className='form-control mb-1' type='text' placeholder='Linkedin profile' name='linkedIn' />
+            <ErrorMessage className='error' name='linkedIn' component='div' />
+            <Field className='form-control mb-1' type='text' placeholder='Github profile' name='gitHub' />
+            <ErrorMessage className='error' name='gitHub' component='div' />
+            <Field className='form-control mb-1' type='text' placeholder='Personal homepage' name='portfolio' />
+            <ErrorMessage className='error' name='portfolio' component='div' />
+            <CustomSelectStack setStacksSelections={setStacksSelections}></CustomSelectStack>
+            <Field className='form-control my-1' as='textarea' placeholder='Bio' name='bio' />
+            <ErrorMessage className='error' name='bio' component='div' />
+            <button
+              className='btn btn-success w-100'
+              type='submit'
+              disabled={isSubmitting}
+              style={{ backgroundColor:'#25A2B8'}}
+            >
+              Update Profile
+            </button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }

@@ -39,6 +39,17 @@ const resolvers = {
         console.log(error);
       }
     },
+    getUser: async (parent, { githubLogin }) => {
+      try {
+        const user = await User.findOne({
+          where: { githubLogin: githubLogin },
+        });
+        console.log('user:', user);
+        return user;
+      } catch (err) {
+        console.log(error);
+      }
+    },
     getEventByUser: async (parent, { userId }) => {
       try {
         const event = await Event.findAll({
